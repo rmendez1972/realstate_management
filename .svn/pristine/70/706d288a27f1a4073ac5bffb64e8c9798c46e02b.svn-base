@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		@import  url(//fonts.googleapis.com/css?family=Lato:700);
+		body {
+			margin:10;
+			font-family:'Lato', sans-serif;
+			color: #999;
+		}
+	</style>
+
+</head>
+<body>
+
+
+		<table border="1">
+			<caption><?php echo $titulo_reporte; ?></caption>
+			<thead>
+				<tr>
+					<th>Clave Municipio</th>
+					<th>Nombre Municipio</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($municipios as $mun): ?>
+					<tr>
+						<td><?php echo $mun->cve_municipio; ?></td>
+						<td><?php echo $mun->nombre_municipio; ?></td>
+
+					</tr>
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?php $__env->startSection('content'); ?>
+
+		<p>
+			<?php echo HTML::link('/asesores/nuevo', 'Nuevo'); ?>
+
+			<?php echo HTML::link('/reportes/asesores', 'Reporte', array('target' => '_blank')); ?>
+
+		</p>
+	<div class="panel panel-default">
+		<div class="panel-heading">Asesores</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<th>Nombre/Razón social</th>
+					<th>RFC</th>
+					<th>Tipo de persona</th>
+					<th>Municipio</th>
+					<th>Colonia/región</th>
+					<th>C.P.</th>
+					<th>Tel.</th>
+					<th>Acciones</th>
+				</thead>
+				<tbody>
+					<?php foreach($asesores as $asesor): ?>
+						<tr>
+							<td><?php echo $asesor->nombre_razon." ".$asesor->apellido_paterno." ".$asesor->apellido_materno; ?></td>
+							<td><?php echo $asesor->rfc; ?></td>
+							<td><?php echo $asesor->tipoPersona()->first()->descripcion_tipo_persona; ?></td>
+							<td><?php echo $asesor->municipio()->first()->nombre_municipio; ?></td>
+							<td><?php echo $asesor->colonia_region; ?></td>
+							<td><?php echo $asesor->codigo_postal; ?></td>
+							<td><?php echo $asesor->telefono." ".$asesor->celular; ?></td>
+							<td>
+								<?php echo HTML::link('/asesores/editar/'.$asesor->id, 'Editar'); ?>
+
+							</td>
+							<td></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+				<div><?php echo $asesores->links(); ?></div>
+			</table>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

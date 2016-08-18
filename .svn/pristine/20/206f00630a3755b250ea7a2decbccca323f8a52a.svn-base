@@ -1,0 +1,96 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+	<h1>Nuevo asesor</h1>
+
+	{{ Form::open(array('url' => '/asesores/nuevo')) }}
+		<div class="form-group">
+			<div>
+				{{ Form::label('nombre_razon', 'Nombre / Razón social', array('class' => 'control-label')) }}
+			</div>
+        	<div class="col-sm-4">
+        		{{ Form::text('nombre_razon', '', array('required' => 'required', 'class' => 'form-control')) }}
+        	</div>
+        </div>
+		<br/>
+        <div class="form-group">
+            <div>
+        	    {{ Form::label('apellido_paterno', 'Apellido paterno', array('class' => 'control-label')) }}
+        	</div>
+            <div class="col-sm-3">
+                {{ Form::text('apellido_paterno', '', array('class' => 'form-control')) }}
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('apellido_materno', 'Apellido materno', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-3">
+                {{ Form::text('apellido_materno', '', array('class' => 'form-control')) }}
+             </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('rfc', 'RFC', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-3">
+                {{ Form::text('rfc', '', array('class' => 'form-control', 'required' => 'required')) }}
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('id_tipo_persona', 'Tipo de persona', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-3">
+                <select id="id_tipo_persona" name="id_tipo_persona" class="form-control">
+                    <option value="-1">- Seleccione una opción -</option>
+                    @foreach($tipos_personas as $tpersona)
+						<option value="{{ $tpersona->id_tipo_persona }}">{{ $tpersona->descripcion_tipo_persona }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('cve_municipio', 'Municipio', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-3">
+                <select id="cve_municipio" name="cve_municipio" class="form-control">
+                    <option value="-1">- Seleccione una opción -</option>
+                    @foreach($municipios as $municipio)
+						<option value="{{ $municipio->cve_municipio }}">{{ $municipio->nombre_municipio }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('colonia_region', 'Colonia / Región', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-3">
+                {{ Form::text('colonia_region', '', array('class' => 'form-control')) }}
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                {{ Form::label('calle', 'Dirección', array('class' => 'control-label')) }}
+            </div>
+            <div class="col-sm-2">
+                {{ Form::text('calle', '', array('class' => 'form-control', 'placeholder' => 'Calle')) }}
+            </div>
+            <div class="col-sm-1">
+                {{ Form::text('manzana', '', array('class' => 'form-control', 'placeholder' => 'Mza.')) }}
+            </div>
+            <div class="col-sm-1">
+                {{ Form::text('numero_interior', '', array('class' => 'form-control', 'placeholder' => '# Int')) }}
+            </div>
+
+        </div>
+	{{ Form::close() }}
+@stop

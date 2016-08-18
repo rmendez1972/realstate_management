@@ -1,0 +1,6 @@
+<?php
+class TipoPersona extends Eloquent{
+    protected $table = 'cat_tipo_persona';
+    protected $primaryKey = 'id_tipo_persona';
+    public $timestamps = false;
+}

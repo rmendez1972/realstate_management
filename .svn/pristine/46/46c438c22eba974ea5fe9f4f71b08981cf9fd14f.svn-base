@@ -1,0 +1,44 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+
+		<p>
+			{{ HTML::link('/asesores/nuevo', 'Nuevo') }}
+			{{ HTML::link('/reportes/asesores', 'Reporte', array('target' => '_blank')) }}
+		</p>
+	<div class="panel panel-default">
+		<div class="panel-heading">Asesores</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<th>Nombre/Razón social</th>
+					<th>RFC</th>
+					<th>Tipo de persona</th>
+					<th>Municipio</th>
+					<th>Colonia/región</th>
+					<th>C.P.</th>
+					<th>Tel.</th>
+					<th>Acciones</th>
+				</thead>
+				<tbody>
+					@foreach($asesores as $asesor)
+						<tr>
+							<td>{{ $asesor->nombre_razon." ".$asesor->apellido_paterno." ".$asesor->apellido_materno }}</td>
+							<td>{{ $asesor->rfc }}</td>
+							<td>{{ $asesor->tipoPersona()->first()->descripcion_tipo_persona }}</td>
+							<td>{{ $asesor->municipio()->first()->nombre_municipio }}</td>
+							<td>{{ $asesor->colonia_region }}</td>
+							<td>{{ $asesor->codigo_postal }}</td>
+							<td>{{ $asesor->telefono." ".$asesor->celular }}</td>
+							<td>
+								{{ HTML::link('/asesores/editar/'.$asesor->id, 'Editar') }}
+							</td>
+							<td></td>
+						</tr>
+					@endforeach
+				</tbody>
+				<div>{{ $asesores->links() }}</div>
+			</table>
+		</div>
+	</div>
+@stop

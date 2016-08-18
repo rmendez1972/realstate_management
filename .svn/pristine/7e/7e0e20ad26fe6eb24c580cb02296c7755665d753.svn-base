@@ -1,0 +1,230 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 20-01-2015 a las 16:56:49
+-- Versión del servidor: 5.5.40-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `asesoresinm_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asesores`
+--
+
+DROP TABLE IF EXISTS `asesores`;
+CREATE TABLE IF NOT EXISTS `asesores` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_razon` varchar(65) DEFAULT '',
+  `apellido_paterno` varchar(45) DEFAULT '',
+  `apellido_materno` varchar(45) DEFAULT '',
+  `rfc` varchar(15) DEFAULT '',
+  `id_tipo_persona` int(2) NOT NULL,
+  `cve_municipio` varchar(3) NOT NULL,
+  `colonia_region` varchar(45) DEFAULT '',
+  `calle` varchar(85) DEFAULT '',
+  `manzana` varchar(12) DEFAULT '',
+  `numero_interior` varchar(12) DEFAULT '',
+  `numero_exterior_lote` varchar(12) DEFAULT '',
+  `codigo_postal` varchar(8) DEFAULT '',
+  `telefono` varchar(10) DEFAULT '',
+  `celular` varchar(10) DEFAULT '',
+  `email` varchar(65) DEFAULT '',
+  `doctos_faltantes` text,
+  `id_usuario_genero` int(11) DEFAULT '0',
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 PACK_KEYS=0 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `asesores`
+--
+
+INSERT INTO `asesores` (`id`, `nombre_razon`, `apellido_paterno`, `apellido_materno`, `rfc`, `id_tipo_persona`, `cve_municipio`, `colonia_region`, `calle`, `manzana`, `numero_interior`, `numero_exterior_lote`, `codigo_postal`, `telefono`, `celular`, `email`, `doctos_faltantes`, `id_usuario_genero`, `id_usuario`) VALUES
+(1, 'Rafael ', 'Méndez', 'Asencio', 'meax7208072m2', 1, '004', 'campestre', 'presa de la amistad', '', '', '433', '77030', '8325014', '', 'rmendez1972@hotmail.com', '', 0, 2),
+(2, 'Verónica', 'Torres', 'Alonso', 'xxxxxxxxxxx', 2, '004', 'conocida', 'alvaro obregon', '', '', '474', '77000', '', '', 'x@hotmail.com', '', 0, 2),
+(5, 'juanito', 'cacahuate', 'romanov', 'jort123456hqrmr', 3, '003', 'dd', 'a', '2', '1', '2', '12345', '', '', '', '', 0, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cat_municipios`
+--
+
+DROP TABLE IF EXISTS `cat_municipios`;
+CREATE TABLE IF NOT EXISTS `cat_municipios` (
+  `cve_municipio` varchar(3) NOT NULL DEFAULT '',
+  `nombre_municipio` varchar(48) DEFAULT '',
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`cve_municipio`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 PACK_KEYS=0;
+
+--
+-- Volcado de datos para la tabla `cat_municipios`
+--
+
+INSERT INTO `cat_municipios` (`cve_municipio`, `nombre_municipio`, `id_usuario`) VALUES
+('001', 'COZUMEL', 0),
+('002', 'FELIPE CARRILLO PUERTO', 0),
+('003', 'ISLA MUJERES', 0),
+('004', 'OTHÓN P. BLANCO', 0),
+('005', 'BENITO JUÁREZ', 0),
+('006', 'JOSÉ MARÍA MORELOS', 0),
+('007', 'LÁZARO CÁRDENAS', 0),
+('008', 'SOLIDARIDAD', 0),
+('009', 'TULUM', 0),
+('010', 'BACALAR', 0),
+('011', 'once', 2),
+('012', 'doce', 2),
+('013', 'trece', 2),
+('014', 'catorce', 2),
+('015', 'quince', 2),
+('016', 'diez y seis', 2),
+('017', 'diez y siete', 2),
+('018', 'diez y ocho', 2),
+('019', 'diez y', 2),
+('020', 'veinte', 2),
+('021', 'veintiuno', 2),
+('022', 'veintidos', 2),
+('023', 'veintitres', 2),
+('024', 'veinticuatro', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cat_tipo_personas`
+--
+
+DROP TABLE IF EXISTS `cat_tipo_personas`;
+CREATE TABLE IF NOT EXISTS `cat_tipo_personas` (
+  `id_tipo_persona` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion_tipo_persona` varchar(25) DEFAULT '',
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_tipo_persona`),
+  UNIQUE KEY `id_tipo_persona` (`id_tipo_persona`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 PACK_KEYS=0 AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `cat_tipo_personas`
+--
+
+INSERT INTO `cat_tipo_personas` (`id_tipo_persona`, `descripcion_tipo_persona`, `id_usuario`) VALUES
+(1, 'FISICA', 0),
+(2, 'MORAL', 0),
+(3, 'ASESOR INMOBILIARIO', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisitos`
+--
+
+DROP TABLE IF EXISTS `requisitos`;
+CREATE TABLE IF NOT EXISTS `requisitos` (
+  `id_requisito` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(200) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_requisito`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `requisitos`
+--
+
+INSERT INTO `requisitos` (`id_requisito`, `descripcion`, `id_usuario`) VALUES
+(2, 'SOLICITUD POR ESCRITO DIRIGIDO AL TITULAR DE LA SECRETARIA.', 2),
+(3, 'IDENTIFICACION OFICIAL VIGENTE CON FOTOGRAFIA', 2),
+(4, 'COMPROBANTE DE DOMICILIO ANEXANDO CROQUIS DE UBICACION ACTUALIZADO.', 2),
+(5, 'CONSTANCIA DE ANTECEDENTES PENALES EN LA COMISIóN DE DELITOS PATRIMONIALES DOLOSOS.', 2),
+(6, 'ACREDITAR DOCUMENTALMENTE SUS CONOCIMIENTOS Y EXPERIENCIA EN MATERIA INMOBILIARIA.', 2),
+(7, 'ACREDITAR SU REGISTRO FISCAL', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisito_asesor`
+--
+
+DROP TABLE IF EXISTS `requisito_asesor`;
+CREATE TABLE IF NOT EXISTS `requisito_asesor` (
+  `id_asesor` int(11) NOT NULL,
+  `id_requisito` int(11) NOT NULL,
+  PRIMARY KEY (`id_asesor`,`id_requisito`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisito_tipo_persona`
+--
+
+DROP TABLE IF EXISTS `requisito_tipo_persona`;
+CREATE TABLE IF NOT EXISTS `requisito_tipo_persona` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_persona_id` int(11) NOT NULL,
+  `requisito_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tipo_persona_id` (`tipo_persona_id`,`requisito_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+
+--
+-- Volcado de datos para la tabla `requisito_tipo_persona`
+--
+
+INSERT INTO `requisito_tipo_persona` (`id`, `tipo_persona_id`, `requisito_id`) VALUES
+(29, 1, 2),
+(33, 1, 3),
+(34, 1, 4),
+(36, 1, 5),
+(43, 1, 7),
+(44, 3, 2),
+(45, 3, 3),
+(46, 3, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` varchar(85) DEFAULT '',
+  `usuario` varchar(45) DEFAULT '',
+  `password` varchar(254) DEFAULT NULL,
+  `nivel_acceso` int(1) DEFAULT '0',
+  `remember_token` varchar(100) NOT NULL,
+  `active` int(11) NOT NULL,
+  `email` varchar(80) NOT NULL,
+  `src` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_usuario` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 PACK_KEYS=0 AUTO_INCREMENT=29 ;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre_usuario`, `usuario`, `password`, `nivel_acceso`, `remember_token`, `active`, `email`, `src`) VALUES
+(2, 'Rafael Mendez Asencio', 'rmendez1972', '$2y$10$W6eYmlVFwL87wl8o5zJlm.Ov.yJkQsc2GajM9sCsSyxifikjy.B6.', 1, 'IcmGzgMOcLvfquZzXd2wYagD4Z9jeINLln45l5C7gGs8ZAp5qv1n1DpPaTBT', 1, 'user@mail.com', 'assets/imagenes/avatars/Mexico.png'),
+(27, 'Vero Torres Alonso', 'vero1972', '$2y$10$aC0/KEj83yXD6KVA.fsFHeL1PImTvvSGlsKUXKkSlYrOsGV9wUkEu', 1, '', 1, 'vero1972@hotmail.com', 'assets/imagenes/avatars/a4f90febc5b7b8f651b917e493e13951.jpg');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

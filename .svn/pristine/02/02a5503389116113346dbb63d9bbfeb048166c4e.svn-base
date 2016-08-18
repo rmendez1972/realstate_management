@@ -1,0 +1,37 @@
+@extends('layouts.bootstrapmatricula')
+
+@section('num_ref')
+    {{$asesor->id.'/'.$año_referencia}}
+@stop
+
+@section('fechaactual')
+    {{$fechaactual}}
+@stop
+
+@section('solicitante')
+    {{$nombre_asesor}}
+@stop
+
+@section('matricula')
+    <strong>{{$asesor->matricula}}</strong>
+@stop
+
+@section('nombre_razon')
+    <strong>{{$nombre_asesor}}</strong>
+@stop
+
+@section('rfc')
+    <strong>{{$asesor->rfc}}</strong>
+@stop
+
+@section('domicilio')
+<strong>{{$domicilio}}</strong>
+@stop
+
+@section('fecha_matriculacion')
+
+        <strong>
+            {{$fechamatricula}}
+        </strong>
+@stop
+

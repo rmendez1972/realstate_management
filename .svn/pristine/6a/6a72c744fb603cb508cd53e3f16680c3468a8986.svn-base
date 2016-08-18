@@ -1,0 +1,30 @@
+@extends('layouts.bootstrapmatricula')
+
+
+@section('solicitante')
+    {{$asesor->nombre_razon.' '.$asesor->apellido_paterno.' '.$asesor->apellido_materno}}   
+@stop
+
+@section('matricula')
+    <strong>{{$asesor->matricula}}</strong>
+@stop
+
+@section('nombre_razon')
+    <strong>{{$asesor->nombre_razon.' '.$asesor->apellido_paterno.' '.$asesor->apellido_materno}}</strong>
+@stop
+
+@section('rfc')
+    <strong>{{$asesor->rfc}}</strong>
+@stop
+
+@section('domicilio')
+    <strong>{{$asesor->calle.' numero '.$asesor->numero_interior.', manzana '.$asesor->manzana.' y colonia o region '.$asesor->colonia_region.' de la ciudad de '.$asesor->localidad}}</strong>
+@stop
+
+@section('fecha_matriculacion')
+        
+        <strong>            
+            {{'a los '.date("d",strtotime($asesor->fecha_matriculacion)).'dias  xxx del mes de '.$meses[date("n")-1].' del año '.date("Y",strtotime($asesor->fecha_matriculacion))}}
+        </strong>       
+@stop
+

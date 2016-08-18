@@ -1,0 +1,68 @@
+<?php $__env->startSection('content'); ?>
+	<div style="margin-top:20px;color:black">
+		<div>
+			<?php echo HTML::link('/municipios/nuevo','',array('class' =>'hi-perfil glyphicon-file','title'=>'Nuevo',)); ?>
+
+			<?php echo HTML::link('/reportes/municipios','',array('class' =>'hi-perfil glyphicon-print','title'=>'Imprimir','target'=>'_blank')); ?>
+
+			<?php echo Session::get("mensage"); ?>
+
+		</div>
+		<div style="float:right">
+			<?php echo Form::open(array
+
+				(
+					'action'=>'MunicipiosController@mostrarMunicipios',
+					'method'=>'GET',
+					'role'=>'form',
+					'class'=>'form-inline'
+					/*'files'=>'true'*/
+				)); ?>
+
+				<?php echo Form::input('text','buscar',Input::get('buscar'), array('class'=>'form-control')); ?>
+
+				<?php echo Form::input('submit',null,'Buscar', array('class'=>'btn btn-primary')); ?>
+
+			<?php echo Form::close(); ?>
+
+
+
+		</div>
+	</div>
+
+	<hr></hr>
+	<div class="panel panel-default" style="width:50%">
+		<div class="panel-heading"><?php echo $titulo_reporte; ?></div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<th>Clave</th>
+					<th>Nombre</th>
+					<th>Acciones</th>
+				</thead>
+				<tbody>
+					<?php foreach($municipios as $mun): ?>
+						<tr>
+							<td><?php echo $mun->cve_municipio; ?></td>
+							<td><?php echo $mun->nombre_municipio; ?></td>
+							<td>
+								<?php echo HTML::link('/municipios/editar/'.$mun->cve_municipio,   '',array('class' =>'hi-perfil glyphicon-pencil width:10px')); ?>
+
+								<?php echo HTML::link('/municipios/eliminar/'.$mun->cve_municipio, '',array('class' =>'hi-perfil  glyphicon-trash width:10px')); ?>
+
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<div>
+				<?php echo $municipios->appends(array("buscar"=>Input::get("buscar")))->links(); ?>
+
+
+
+			</div>
+		</div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

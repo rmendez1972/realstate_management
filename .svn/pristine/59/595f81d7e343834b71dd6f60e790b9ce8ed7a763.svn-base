@@ -1,0 +1,29 @@
+@extends('layouts.bootstrap')
+
+@section('head')
+<title>Eliminar Usuarios</title>
+<meta name='description' content='Eliminar artículo'>
+<meta name='keywords' content='palabras, clave'>
+<meta name='robots' content='noindex,nofollow'>
+@stop
+
+@section('content')
+<h2>Eliminar Usuario: {{$usuario->nombre_usuario}}</h3>
+
+{{Form::open(array(
+            "method" => "POST",
+            "url" => "/usuarios/eliminar/$usuario->id",
+            "role" => "form",
+            ))}}
+            
+            <div class="form-group">
+                {{Form::label("¿Estás seguro de que quieres eliminar al Usuario?")}}
+                {{Form::input("hidden", "_token", csrf_token())}}
+                {{Form::input("hidden", "id", $usuario->id)}}
+                {{Form::input("submit", null, "Eliminar", array("class" => "btn btn-danger"))}}
+            </div>
+            
+{{Form::close()}}
+
+@stop
+

@@ -1,0 +1,13 @@
+<?php
+class AsesoresController extends BaseController{
+    public function mostrarAsesores(){
+        $asesores=Asesor::orderBy('nombre_razon')->orderBy('apellido_paterno')->orderBy('apellido_materno')->paginate(20);
+        return View::make('asesores.lista')->withAsesores($asesores);
+    }
+
+    public function nuevo(){
+        $tpersonas=TipoPersona::all();
+        $municipios=Municipio::all();
+        return View::make('asesores.nuevo', array('tipos_personas' => $tpersonas, 'municipios' => $municipios));
+    }
+}

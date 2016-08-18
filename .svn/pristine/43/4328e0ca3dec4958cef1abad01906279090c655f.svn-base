@@ -1,0 +1,47 @@
+<?php
+class MunicipiosController extends BaseController {
+    public function mostrarMunicipios(){
+        if (isset($_GET['buscar']) && ($_GET['buscar']!="") )
+        {
+            $buscar=htmlspecialchars(Input::get("buscar"));
+            $municipios=Municipio::where("nombre_municipio","LIKE",'%'.$buscar.'%')->simplePaginate(1);
+        }
+        else
+        {
+            $municipios=Municipio::orderBy("cve_municipio")->simplePaginate(5);
+            
+        }
+        return View::make('municipios.lista', array('municipios' => $municipios));
+    }
+
+
+
+    public function nuevoMunicipio(){
+        return View::make('municipios.crear');
+    }
+
+    public function crearMunicipio(){
+        $id_usuario=Auth::user()->get()->id;
+        $municipio=new Municipio;
+        $municipio->cve_municipio=Input::get("cve_municipio");
+        $municipio->nombre_municipio=Input::get("nombre_municipio");
+        $municipio->id_usuario=$id_usuario;
+        $municipio->save();
+        //Municipio::create(Input::all());
+        return Redirect::to('municipios');
+    }
+
+    public function editarMunicipio($id){
+        $municipio=Municipio::find($id);
+        return View::make('municipios.editar', array('municipio' => $municipio));
+    }
+
+    public function guardarMunicipio(){
+        $id_usuario=Auth::user()->get()->id;
+        $municipio=Municipio::find(Input::get("cve_municipio"));
+        $municipio->nombre_municipio=Input::get("nombre_municipio");
+        $municipio->id_usuario=$id_usuario;
+        $municipio->save();
+        return Redirect::to('municipios');
+    }
+}

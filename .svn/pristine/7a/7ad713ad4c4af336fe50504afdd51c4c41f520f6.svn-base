@@ -1,0 +1,16 @@
+<?php $__env->startSection('head'); ?>
+<title>Contacto</title>
+<meta name='title' content='Login'>
+<meta name='description' content='Login'>
+<meta name='keywords' content='palabras, clave'>
+<meta name='robots' content='noindex,nofollow'>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<h1>Bienvenido <?php echo Auth::user()->get()->email; ?></h1>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

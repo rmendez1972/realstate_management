@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+      @import url(//fonts.googleapis.com/css?family=Lato:700);
+      body {
+        margin:105px 10px -10px 10px;
+        font-family:'Lato', sans-serif;
+        font-size: 16px;
+        /*background-image: url('assets/imagenes/letrascintilla.jpg');
+        background-position: bottom 320;
+        background-repeat:no-repeat;
+        /*height: 750px; background-repeat: no-repeat; width: 750px; margin:0*/
+      }
+      .container{
+        padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;
+        font-size:14px;
+      }
+      .referencia{text-align:left;width:45%;font-size:12px;float: right;
+        border-color: red;
+        border-style: double;
+        padding: 5px;
+        margin-right: 35px;
+      }
+      .cabecera {top:0px; left:35px;
+        /*border-bottom-style: solid;
+        background-image: url('assets/imagenes/logosreportes.jpg');*/
+        background-image: url('assets/imagenes/logosmatricula.jpg');
+        height: 78px; background-repeat: no-repeat; width: 680px; margin: 0 auto;position:fixed;
+      }
+      .pie {
+        background-image: url('assets/imagenes/letrascintilla.jpg');
+        background-position:  25 350;
+        
+        background-repeat:no-repeat;
+        /*background-image: url('assets/imagenes/cintillareportes.jpg');*/
+        /*background-image: url('assets/imagenes/letrascintilla.jpg');
+        background-position: 0 500;*/
+        height: 870px; background-repeat: no-repeat; width: 750px; margin:0 auto; 
+        margin-bottom: -50px;/*position:fixed; bottom:-45; z-index:999999*/;
+      }
+     .pie .page:after {content: "Página " counter(page); }
+     .pie .page{text-align: center;color:#000;width: 100%;position:relative;top:50px;
+     }
+      .tituloreporte{ font-size: 16px;
+        background-color: #ddd;
+        text-align: center;margin-right: -20px;
+        border:1px solid; margin-top:90px;
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+      }
+      .aplicacion{position: absolute;
+        width:400px;
+        margin-left: 41%;
+
+      }
+
+
+      #caja{ position: absolute;
+        left: 0;
+        top: 0;
+        height: 78px;
+        width: 100%;
+      }
+      #caja img { width: 950px;height: 78%; }
+      .texto {color: #f00;font-size: 30px;position: relative;}
+
+
+    </style>
+
+  </head>
+
+
+  <body>
+  <!--<img src='assets/imagenes/logos.jpg'></img>-->
+    <div class="cabecera" style="background-color:white; width:680px"></div>
+
+    <div class="pie">
+      <div class="referencia">
+        <strong>REFERENCIA:</strong> DESPACHO DEL C. SECRETARIO<br><br>   
+      </div>
+
+      <div style="width:680px;margin: auto">
+        <br><br><p style="text-align:right">  @yield('fechaactual').</p>
+        <br><strong>@yield('solicitante')<br>
+          SOLICITANTE<br>P R E S E N T E.</strong>
+          <!--</div>-->
+        <br><br>
+        <div style="text-align:justify;font-size:18px">
+          Con base a la solicitud que hiciera para inscribirse en la Matrícula y en la obtención de la acreditación para la Prestación de Servicios Inmobiliarios, hago de su conocimiento, que luego de haber realizado un análisis minucioso de la información proporcionada, y toda vez que ha cumplido con los requisitos y condiciones que marca la Ley de Prestación de Servicios Inmobiliarios del Estado de Quintana Roo, tengo a bien, otorgarle la Matrícula @yield('matricula') y la Acreditación como Asesor Inmobiliario en el Estado de Quintana Roo, a su persona, identificado como @yield('nombre_razon') con RFC @yield('rfc') y domicilio Fiscal señalado en la calle @yield('domicilio') @yield('fecha_matriculacion')
+          <br><br>
+          No omito manifestar que la vigencia de la Matrícula y la Acreditación como Asesor Inmobiliario, es de un año contados a partir de la fecha de su expedición, debiendo rematricularse y/o renovarse en los 5 días posteriores a su vencimiento, de acuerdo a lo establecido en la Ley. Del mismo modo, le hago de su conocimiento los derechos y obligaciones contemplados en los <strong>Artículos 12, 13, 14 y 15 de la Ley de Prestación de Servicios Inmobiliarios del Estado de Quintana Roo.</strong>
+        </div>
+
+        <br><br><br><br><br>
+        <div style="text-align:center;font-size:18px">
+          <u><strong>MAURICIO RODRÍGUEZ MARRUFO</strong><br></u>
+            SECRETARIO DE DESARROLLO<br>
+            URBANO Y VIVIENDA          
+        </div>
+
+    </div>
+  </div>
+    <!--<div class="pie"></div>-->
+  </body>
+
+</html>

@@ -1,0 +1,32 @@
+<?php
+class MunicipiosController extends BaseController {
+    public function mostrarMunicipios(){
+        $municipios=Municipio::orderBy("cve_municipio")->get();
+        return View::make('municipios.lista', array('municipios' => $municipios));
+    }
+
+    public function nuevoMunicipio(){
+        return View::make('municipios.crear');
+    }
+
+    public function crearMunicipio(){
+        $municipio=new Municipio;
+        $municipio->cve_municipio=Input::get("cve_municipio");
+        $municipio->nombre_municipio=Input::get("nombre_municipio");
+        $municipio->save();
+        //Municipio::create(Input::all());
+        return Redirect::to('municipios');
+    }
+
+    public function editarMunicipio($id){
+        $municipio=Municipio::find($id);
+        return View::make('municipios.editar', array('municipio' => $municipio));
+    }
+
+    public function guardarMunicipio(){
+        $municipio=Municipio::find(Input::get("cve_municipio"));
+        $municipio->nombre_municipio=Input::get("nombre_municipio");
+        $municipio->save();
+        return Redirect::to('municipios');
+    }
+}

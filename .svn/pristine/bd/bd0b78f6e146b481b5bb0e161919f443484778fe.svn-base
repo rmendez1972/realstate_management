@@ -1,0 +1,16 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+	<h1>Editar municipio</h1>
+
+	{{ Form::open(array('url' => '/municipios/editar')) }}
+		{{ Form::label('cve_municipio', 'Clave') }}
+		{{ Form::text('cve_municipio', $municipio->cve_municipio, array('readonly' => 'readonly')) }}
+		<br/>
+		{{ Form::label('nombre_municipio', 'Nombre') }}
+        {{ Form::text('nombre_municipio', $municipio->nombre_municipio, array('required' => 'required')) }}
+        <br/>
+        {{ Form::submit('Aceptar', array('class' => 'btn btn-primary')) }}
+        <a href="{{ URL::to('/municipios') }}">{{ Form::button('Cancelar', array('class' => 'btn')) }}</a>
+	{{ Form::close() }}
+@stop

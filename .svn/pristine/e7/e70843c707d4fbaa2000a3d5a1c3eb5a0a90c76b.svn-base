@@ -1,0 +1,99 @@
+<?php
+
+class HomeController extends BaseController {
+
+	/*
+	|--------------------------------------------------------------------------
+	| Default Home Controller
+	|--------------------------------------------------------------------------
+	|
+	| You may wish to use controllers instead of, or in addition to, Closure
+	| based routes. That's great! Here is an example controller method to
+	| get you started. To route to this controller, just add the route:
+	|
+	|	Route::get('/', 'HomeController@showWelcome');
+	|
+	*/
+
+	
+
+	public function index()
+	{
+		
+		return View::make('HomeController.index');
+	}
+
+	public function login()
+	{
+
+		return View::make('HomeController.login');
+	}
+
+	public function privado()
+	{
+
+		return View::make('HomeController.privado');
+	}
+
+
+
+	public function salir()
+	{
+		Auth::user()->logout();
+		return Redirect::to('login');
+	}
+
+	public function contacto()
+	{
+		$mensaje=null;
+		if (isset($_POST['contacto']))
+		{
+			$rules=array(
+				'name'=> 'required|min:3|max:80|regex:/^[a-záéóúaeiouñ\s]+$/i',
+				'email'=> 'required|email|between:3,80',
+				'subject'=> 'required|regex:/^[a-z0-9áéóúaeiouñ\s]+$/i|min:3|max:80',
+				'msg'=> 'required|between:3,500',
+			);
+
+			$messages=array(
+				'name.required'=> 'El nombre es obligatorio',
+				'name.min'=> 'El nombre dede ser min. de 3 letras',
+				'name.max'=> 'El nombre debe ser max. de 80 letras',
+				'name.regex'=> 'El nombre solo acepta letras',
+				'email.required'=> 'El email es obligatorio',
+				'email.email'=> 'El email dede tener @',
+				'email.between'=> 'El email tener entre 3 y 80 letras',
+				'subject.required'=> 'El subject es obligatorio',
+				'subject.min'=> 'El subject dede ser min. de 3 letras',
+				'subject.max'=> 'El subject debe ser max. de 80 letras',
+				'subject.regex'=> 'El subject debe ser de letras',
+				'msg.required'=> 'El msg es obligatorio',
+				);
+			$validador= Validator::make(Input::All(), $rules, $messages);
+			if ($validador->passes())
+			{
+				$data=array(
+					'name'=>Input::get('name'),
+					'email'=>Input::get('email'),
+					'subject'=>Input::get('subject'),
+					'msg'=>Input::get('msg')
+				);
+				$fromEmail='soporte@soporteorganizacional.com.mx';
+				$fromName='Rafael Méndez';
+				Mail::send('emails.contacto',$data,function($message) use ($fromName,$fromEmail)
+				{
+					$message->to($fromEmail,$fromName);
+					$message->from('rmendez1972@hotmail.com','Rafael Mendez Asencio');
+					$message->subject('Email de prueba desde laravel');
+				});	
+				$mensaje="<div class='text-info'>Correo enviado con éxito</div>";
+			}
+			else{
+
+				return Redirect::back()->withInput()->withErrors($validador);
+			}
+
+		}
+		return View::make('HomeController.contacto',array('mensaje'=>$mensaje));
+	}
+}

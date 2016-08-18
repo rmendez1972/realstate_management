@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+
+      body {
+        margin:-50px 10px 10px -45px;
+        font-family: helvetica, sans-serif;
+        font-size: 12px;
+        height: 1000px;
+      }
+
+
+      #frente{ position: absolute;
+        width: 213px;height: 346px;
+        background-image: url('assets/imagenes/CredencialesAsesoresInmobiliariosFrente1.jpg');
+
+        text-align: center;
+
+      }
+
+     #reverso {
+        width: 213px;height: 346px;
+        background-image: url('assets/imagenes/CredencialesAsesoresInmobiliariosDetras2.jpg');text-align: center;
+
+
+      }
+
+      #foto {
+        border-color: black;
+        /*border-style: solid;margin-top:50px;*/
+        margin-top:50px;
+        margin-left:70px;
+        /*background-image: url('assets/imagenes/avatars/foto_perfil1.jpg');*/
+        background-position: 0% 0%;
+        background-size: 10 10;
+        background-repeat: no-repeat;
+        width: 80px;height: 100px;
+        /*position: absolute;left: 200px;top:200px*/
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="frente">
+      <div id="foto" >@yield('foto')</div>
+      @yield('nombre_razon')
+      <small><br><small>ASESOR INMOBILIARIO DEL ESTADO</small><strong>
+        PERSONA @yield('tipo_persona')</strong></small><br><br>
+        _________________<br>
+        Firma<br>
+      <div style="font-size:10px">
+        MATRICULA:<br> @yield('matricula')<br><br>
+        Vigencia:
+        @yield('vigencia')
+      </div>
+      </small>
+
+    </div>
+
+    <div id="reverso">
+      <div style="margin-top:50px;">
+        <small>
+          MATRICULA:<br>@yield('matricula')<br>
+          RFC: @yield('rfc')
+          <div style=   "text-align:left;padding:10px">
+            <strong >
+              DOMICILIO:
+            </strong>
+            <div style="text-align:justify">
+              @yield('domicilio')
+            </div>
+          </div>
+
+        </small>
+
+      </div>
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,62 @@
+<?php $__env->startSection('head'); ?>
+<title>Login</title>
+<meta name='title' content='Login'>
+<meta name='description' content='Login'>
+<meta name='keywords' content='palabras, clave'>
+<meta name='robots' content='noindex,nofollow'>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('perfil'); ?>
+    <div class="hi-icon hi-icon-locked" ></div>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo Session::get("message"); ?>
+
+<div class="panel panel-default" style="width:50%">
+<div class="panel-heading" style="border-bottom:1px solid red"><h4>Inicio de Sesión</h4></div>
+<div class="panel-body">
+<?php echo Form::open(array(
+            "method" => "POST",
+            "url" => "/login/nuevo",
+            "role" => "form",
+            )); ?>
+
+ 
+            <div class="form-group">
+                <?php echo Form::label("Email:"); ?>
+
+                <?php echo Form::input("text", "email", null, array("class" => "form-control")); ?>
+
+            </div> 
+            
+            <div class="form-group">
+                <?php echo Form::label("Password:"); ?>
+
+                <?php echo Form::input("password", "password", null, array("class" => "form-control")); ?>
+
+            </div>
+            
+            <div class="form-group">
+                <?php echo Form::label("Recordar sesión:"); ?>
+
+                <?php echo Form::input("checkbox", "remember", "On"); ?>
+
+            </div>
+            
+            <div class="form-group">
+                <?php echo Form::input("hidden", "_token", csrf_token()); ?>
+
+                <?php echo Form::input("submit", null, "Iniciar sesión", array("class" => "btn btn-primary")); ?>
+
+            </div>
+            
+<?php echo Form::close(); ?>
+
+</div>
+</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

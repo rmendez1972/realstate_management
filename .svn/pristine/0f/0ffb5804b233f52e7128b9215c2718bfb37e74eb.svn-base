@@ -1,0 +1,90 @@
+<?php
+
+class ReportesController extends BaseController {
+
+	/*
+	|--------------------------------------------------------------------------
+	| Default Home Controller
+	|--------------------------------------------------------------------------
+	|
+	| You may wish to use controllers instead of, or in addition to, Closure
+	| based routes. That's great! Here is an example controller method to
+	| get you started. To route to this controller, just add the route:
+	|
+	|	Route::get('/', 'HomeController@showWelcome');
+	|
+	*/
+
+
+	public function reporteUsuarios(){
+        $usuarios=Usuario::all();
+        // variable con html renderizado
+        $html= View::make('ReportesController.lista_usuarios', array('usuarios' => $usuarios,'titulo_reporte'=>'Listado de Usuarios'));
+        return PDF::load($html, 'letter', 'portrait')->show();
+    }
+
+    public function reporteMunicipios(){
+        $municipios=Municipio::all();
+
+        $html= View::make('ReportesController.lista_municipios', array('municipios' => $municipios,'titulo_reporte'=>'Listado de Municipios'));
+        return PDF::load($html, 'letter', 'portrait')->show();
+    }
+
+
+    public function reporteTipopersona(){
+        $tipopersona=TipoPersona::all();
+
+        $html= View::make('ReportesController.lista_tipopersona', array('tipopersona' => $tipopersona,'titulo_reporte'=>'Listado de Tipos de Persona'));
+        return PDF::load($html, 'letter', 'portrait')->show();
+    }
+
+
+    public function reporteAsesores_municipio()
+    {
+
+        if (isset($_POST['_token']))
+        {
+            $rules = array
+            (
+                'cve_municipio' => 'required|min:1',
+
+            );
+
+            $messages = array
+            (
+                'cve_municipio.required' => 'El campo de municipio es requerido',
+                'cve_municipio.min' => 'Debes seleccionar una opción del catálogo de municipios',
+
+            );
+
+            $validator = Validator::make(Input::All(), $rules, $messages);
+
+            if ($validator->passes())
+            {
+                //recuperamos datos del formulario
+                $cve_municipio = Input::get('cve_municipio');
+                $asesores=Municipio::find($cve_municipio)->asesores;
+                $municipio=Municipio::find($cve_municipio);
+                $nombre_municipio=$municipio['nombre_municipio'];
+                $html= View::make('ReportesController.lista_asesores_municipio', array('asesores' => $asesores,'titulo_reporte'=>'Reporte de asesores del Municipio '.$nombre_municipio));
+                return PDF::load($html, 'letter', 'landscape')->show();
+            }
+            else
+            {
+                return Redirect::back()->withInput()->withErrors($validator);
+            }
+
+        }
+        $mensage=null;
+        $municipios=Municipio::all();
+        return View::make('ReportesController.asesores_Municipio',array('mensage'=>$mensage,'municipios'=>$municipios));
+    }
+
+
+    public function reporteAsesores(){
+        $asesores=Asesor::all();
+        $html= View::make('ReportesController.lista_asesores', array('asesores' => $asesores,'titulo_reporte'=>'Listado de Asesores'));
+        return PDF::load($html, 'letter', 'landscape')->show();
+    }
+
+}

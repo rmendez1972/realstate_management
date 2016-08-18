@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<?php $__env->startSection('sidebar'); ?>
+		Primer Proyecto Laravel 4
+	<?php echo $__env->yieldSection(); ?>
+	<div class="container">
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+</body>
+</html>

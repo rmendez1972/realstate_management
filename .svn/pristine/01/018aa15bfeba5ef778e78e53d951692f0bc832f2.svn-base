@@ -1,0 +1,10 @@
+<?php $__env->startSection('head'); ?>
+<title>Pagina de Inicio</title>
+<meta name="description" content="pagina de inicio">
+<meta name="keywords" content="palabras, clave">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1>Página de Inicio</h1>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<body>
+
+ 
+<?php $__env->startSection('sidebar'); ?>
+     @parent
+     Lista de usuarios
+<?php $__env->stopSection(); ?>
+ 
+<?php $__env->startSection('content'); ?>
+        <h1>Usuarios</h1>
+        <?php echo HTML::link('usuarios/nuevo', 'Crear Usuario');; ?>
+
+ 
+<ul>
+  <?php foreach($usuarios as $usuario): ?>
+           <li>
+    <?php echo HTML::link( 'usuarios/'.$usuario->id , $usuario->nombre.' '.$usuario->apellido ); ?>
+
+      
+  </li>
+          <?php endforeach; ?>
+  </ul>
+<?php $__env->stopSection(); ?>
+</body>
+</html>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

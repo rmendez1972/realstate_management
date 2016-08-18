@@ -1,0 +1,31 @@
+<?php $__env->startSection('titulo'); ?>
+<?php echo $titulo_reporte; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+
+		<table class="table table-condensed">
+			<!--<caption class="tituloreporte"><?php echo $titulo_reporte; ?></caption>-->
+			<thead>
+				<tr>
+					<th>Clave Municipio</th>
+					<th>Nombre Municipio</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($municipios as $mun): ?>
+					<tr>
+						<td><?php echo $mun->cve_municipio; ?></td>
+						<td><?php echo $mun->nombre_municipio; ?></td>
+
+					</tr>
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrapreportes', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

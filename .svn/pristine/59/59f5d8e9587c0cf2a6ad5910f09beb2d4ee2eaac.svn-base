@@ -1,0 +1,58 @@
+<?php $__env->startSection('head'); ?>
+<title>Pagina de Contacto</title>
+<meta name="description" content="pagina de contacto">
+<meta name="keywords" content="palabras, clave, contacto">
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1>Contacto</h1>
+	<?php echo $mensaje; ?>
+
+	<?php echo Form::open(array
+		(
+			'action'=>'HomeController@contacto',
+			'method'=>'POST',
+			'role'=>'form',
+		)); ?>
+
+	
+	
+	<div class"form-group">
+		<?php echo Form::label('Nombre:'); ?>
+
+		<?php echo Form::input('text','name',Input::old('name'), array('class'=>'form-control')); ?>
+
+		<div class="bg-danger"><?php echo $errors->first('name'); ?></div>
+	</div>
+	<div class"form-group">
+		<?php echo Form::label('Email:'); ?>
+
+		<?php echo Form::input('email','email',Input::old('email'), array('class'=>'form-control')); ?>
+
+		<div class="bg-danger"><?php echo $errors->first('email'); ?></div>
+	</div>
+	<div class"form-group">
+		<?php echo Form::label('Asunto:'); ?>
+
+		<?php echo Form::input('text','subject',Input::old('subject'), array('class'=>'form-control')); ?>
+
+		<div class="bg-danger"><?php echo $errors->first('subject'); ?></div>
+	</div>
+	<div class"form-group">
+		<?php echo Form::label('Mensaje:'); ?>
+
+		<?php echo Form::textarea('msg',Input::old('msg'), array('class'=>'form-control')); ?>
+
+		<div class="bg-danger"><?php echo $errors->first('msg'); ?></div>
+	</div>
+		<?php echo Form::input('hidden','contacto'); ?>
+
+		<?php echo Form::input('submit','','Enviar', array('class'=>'btn btn-primary')); ?>
+
+
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

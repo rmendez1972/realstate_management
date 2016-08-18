@@ -1,0 +1,7 @@
+<?php
+class Municipio extends Eloquent { //Todos los modelos deben extender la clase Eloquent
+    protected $table = 'cat_municipios';
+    protected $primaryKey = 'cve_municipio';
+    public $timestamps = false;
+}
+?>

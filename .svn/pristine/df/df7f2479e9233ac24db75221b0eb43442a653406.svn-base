@@ -1,0 +1,57 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+	<!--<h1>Municipios</h1>-->
+
+	<p>
+		{{ HTML::link('/municipios/nuevo', 'Nuevo'); }}
+	</p>
+	<hr>
+{{Form::open(array
+		(
+			'action'=>'MunicipiosController@mostrarMunicipios',
+			'method'=>'GET',
+			'role'=>'form',
+			'class'=>'form-inline'
+			/*'files'=>'true'*/
+		))
+
+	}}
+	{{Form::input('text','buscar',Input::get('buscar'), array('class'=>'form-control'))}}
+	{{Form::input('submit',null,'Buscar', array('class'=>'btn btn-primary'))}}
+	{{Form::close()}}
+	<hr>
+	<div class="panel panel-default" style="margin-top:20px">
+	<div class="panel-heading">Municipios</div>
+	<div class="panel-body">
+	
+	
+
+	<table class="table">
+		<thead>
+			<th>Clave</th>
+			<th>Nombre</th>
+			<th>Acciones</th>
+		</thead>
+		<tbody>
+			@foreach($municipios as $mun)
+				<tr>
+					<td>{{ $mun->cve_municipio }}</td>
+					<td>{{ $mun->nombre_municipio }}</td>
+					<td>
+						{{ HTML::link('/municipios/editar/'.$mun->cve_municipio, 'Editar'); }}
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+	<div class="container">
+		{{$municipios->appends(array("buscar"=>Input::get("buscar")))->links()}}
+
+	</div>
+	</<div>
+	</<div>
+	</<div>
+		
+	</div>
+@stop

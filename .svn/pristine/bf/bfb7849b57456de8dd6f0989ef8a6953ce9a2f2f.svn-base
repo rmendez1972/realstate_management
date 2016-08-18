@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+    @import url(//fonts.googleapis.com/css?family=Lato:700);
+
+      body {
+        margin:-50px 10px 10px -45px;
+        font-family: helvetica, sans-serif;
+        font-size: 12px;
+        height: 1000px;
+      }
+
+
+      #frente{ position: absolute;
+        width: 213px;height: 346px;
+        background-image: url('assets/imagenes/CredencialesAsesores InmobiliariosFRENTE_346x213.jpg');
+
+        text-align: center;
+
+      }
+
+     #reverso {
+        width: 213px;height: 346px;
+        background-image: url('assets/imagenes/CredencialesAsesoresInmobiliariosDETRAS_346x213.jpg');text-align: center;
+
+
+      }
+
+      #foto {
+        border-color: black;
+        /*border-style: solid;margin-top:50px;*/
+        margin-top:50px;
+        margin-left:70px;
+        /*background-image: url('assets/imagenes/avatars/foto_perfil1.jpg');*/
+        background-position: 0% 0%;
+        background-size: 10 10;
+        background-repeat: no-repeat;
+        width: 80px;height: 100px;
+        /*position: absolute;left: 200px;top:200px*/
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="frente">
+      <div id="foto" >@yield('foto')</div>
+      @yield('nombre_razon')
+      <small><strong>
+        @yield('tipo_persona')</strong></small><br>
+        <small class="text-muted"><small><small>@yield('afiliado')</small></small></small><br>
+        _________________<br>
+        Firma<br><small><br></small>
+      <div style="font-size:12px">
+        MATRICULA:<br> @yield('matricula')<br><br>
+
+      </div>
+      </small>
+
+    </div>
+
+    <div id="reverso">
+      <div style="margin-top:50px;">
+        <small>
+
+          <div style=   "text-align:left;padding:10px">
+
+          RFC: @yield('rfc')<br><br>
+            <strong >
+              DOMICILIO:
+            </strong>
+            <div style="text-align:justify;">
+              @yield('domicilio')
+            </div>
+
+            <div style="font-size:9px;text-align:justify;">
+              <br>
+              @yield('fecha_expedicion')
+            </div>
+          </div>
+
+            <div style="width:300px;height:50px;position:fixed; bottom:0;left:-120;font-size:3px;margin-right:-120px">
+              @yield('qr_code')<br><br><br><small><br></small>
+              <div style="font-size:11px;color:white;width:500px;margin-left:-40px;">Vencimiento:@yield('vigencia')</div>
+
+            </div>
+          </div>
+
+        </small>
+
+        <!--<div style="position:fixed; z-index:999999;font-size:10px;margin-left:-30px;color:black;bottom:-9px;">
+          Vencimiento:
+          @yield('vigencia')
+        </div>-->
+      <div>
+      </div>
+
+
+  </body>
+
+</html>

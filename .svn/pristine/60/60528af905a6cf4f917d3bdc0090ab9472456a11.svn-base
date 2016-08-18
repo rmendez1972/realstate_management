@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		@import url(//fonts.googleapis.com/css?family=Lato:700);
+		body {
+			margin:10;
+			font-family:'Lato', sans-serif;
+			color: #999;
+		}
+	</style>
+
+</head>
+<body>
+
+
+		<table border="1">
+			<caption>{{$titulo_reporte}}</caption>
+			<thead>
+				<tr>
+					<th>Descripción de Tipo de Persona</th>
+
+
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($tipopersona as $tipo)
+					<tr>
+						<td>{{$tipo->descripcion_tipo_persona}}</td>
+
+
+					</tr>
+				@endforeach
+
+			</tbody>
+		</table>
+
+</body>
+</html>

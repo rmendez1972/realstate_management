@@ -1,0 +1,192 @@
+<?php
+
+class HomeController extends BaseController {
+
+	/*
+	|--------------------------------------------------------------------------
+	| Default Home Controller
+	|--------------------------------------------------------------------------
+	|
+	| You may wish to use controllers instead of, or in addition to, Closure
+	| based routes. That's great! Here is an example controller method to
+	| get you started. To route to this controller, just add the route:
+	|
+	|	Route::get('/', 'HomeController@showWelcome');
+	|
+	*/
+
+	
+
+	public function index()
+	{
+		
+		return View::make('HomeController.index');
+	}
+
+	public function login()
+	{
+
+		return View::make('HomeController.login');
+	}
+
+	public function privado()
+	{
+
+		return View::make('HomeController.privado');
+	}
+
+	public function register()
+	{
+		
+		if (isset($_POST['_token']))
+		{
+			$rules = array
+		    (
+		    'nombre_usuario' => 'required|regex:/^[a-záéóóúàèìòùäëïöüñ\s]+$/i|min:3|max:80',
+		    'usuario' => 'required|unique:usuarios|regex:/^[a-z0-9áéóóúàèìòùäëïöüñ\s]+$/i|min:3|max:20',
+		    'email' => 'required|email|unique:usuarios|between:3,80',
+		    'password' => 'required|regex:/^[a-z0-9]+$/i|min:8|max:16',
+		    'repetir_password' => 'required|same:password',
+		    'terminos' => 'required',
+		    );
+		    
+		    $messages = array
+		    (
+		        'nombre_usuario.required' => 'El campo nombre de usuario es requerido',
+		        'nombre_usuario.regex' => 'Sólo se aceptan letras y números',
+		        'nombre_usuario.min' => 'El mínimo permitido son 3 caracteres',
+		        'nombre_usuario.max' => 'El máximo permitido son 80 caracteres',
+		        'usuario.required' => 'El campo nombre es requerido',
+		        'usuario.regex' => 'Sólo se aceptan letras',
+		        'usuario.min' => 'El mínimo permitido son 3 caracteres',
+		        'usuario.max' => 'El máximo permitido son 20 caracteres',
+		        'usuario.unique' => 'El usuario ya se encuentra registrado',
+		        'email.required' => 'El campo email es requerido',
+		        'email.email' => 'El formato de email es incorrecto',
+		        'email.unique' => 'El email ya se encuentra registrado',
+		        'email.between' => 'El email debe contener entre 3 y 80 caracteres',
+		        'password.required' => 'El campo password es requerido',
+		        'password.regex' => 'El campo password sólo acepta letras y números',
+		        'password.min' => 'El mínimo permitido son 8 caracteres',
+		        'password.max' => 'El máximo permitido son 16 caracteres',
+		        'repetir_password.required' => 'El campo repetir password es requerido',
+		        'repetir_password.same' => 'Los passwords no coinciden',
+		        'terminos.required' => 'Tienes que aceptar los términos',
+		    );
+		    
+		    $validator = Validator::make(Input::All(), $rules, $messages);
+		    
+		    if ($validator->passes())
+		    {
+		        //Guardar los datos en la tabla usuarios 
+		        $nombre_usuario = input::get('nombre_usuario');
+		        $user = input::get('usuario');
+		        $email = input::get('email');
+		        $password = Hash::make(input::get('password'));
+		        
+		        $conn = DB::connection('mysql');
+		        $sql = "INSERT INTO usuarios(nombre_usuario,usuario, email, password,active) VALUES (?, ?, ?, ?, ?)";
+		        $conn->insert($sql, array($nombre_usuario,$user, $email, $password,1));
+		        
+		        // Crear cookies para luego verificar el link de registro
+		        // String alfanumérico de 32 caracteres de longitud
+		        //$key = Str::random(32);
+		        //Cookie::queue('key', $key, 60*24);
+		        // Almacenar el email
+		        //Cookie::queue('email', $email, 60*24);
+		        
+		        // Crear la url de confirmación para el mensaje del email
+		        //$msg = "<a href='".URL::to("/confirmregister/$email/$key")."'>Confirmar cuenta</a>";
+		        
+		        //Enviar email para confirmar el registro
+		        /*$data = array(
+		            'user' => $user,
+		            'msg' => $msg,
+		          );
+
+		         $fromEmail = 'rasencio1972@gmail.com';
+		         $fromName = 'Rafael Mendez Asencio';
+
+		          Mail::send('emails.register', $data, function($message) use ($fromName, $fromEmail, $user, $email)
+		          {
+		             $message->to($email, $user);
+		             $message->from($fromEmail, $fromName);
+		             $message->subject('Confirmar registro en Laravel');
+		          });
+		         
+		          $message = '<hr><label class="label label-info">'.$user.' le hemos enviado un email a su cuenta de correo electrónico para que confirme su registro</label><hr>';
+		          */
+		          $mensage="Usuario registrado exitosamente";
+		          //return Redirect::route('register')->with("mensage", $mensage);
+		          return View::make('HomeController.register',array('mensage'=>$mensage));
+		    }
+		    else
+		    {
+		        return Redirect::back()->withInput()->withErrors($validator);  
+		    }
+
+		}
+		$mensage=null;
+		return View::make('HomeController.register',array('mensage'=>$mensage));
+	}
+
+	public function salir()
+	{
+		Auth::user()->logout();
+		return Redirect::to('login');
+	}
+
+	public function contacto()
+	{
+		$mensaje=null;
+		if (isset($_POST['contacto']))
+		{
+			$rules=array(
+				'name'=> 'required|min:3|max:80|regex:/^[a-záéóúaeiouñ\s]+$/i',
+				'email'=> 'required|email|between:3,80',
+				'subject'=> 'required|regex:/^[a-z0-9áéóúaeiouñ\s]+$/i|min:3|max:80',
+				'msg'=> 'required|between:3,500',
+			);
+
+			$messages=array(
+				'name.required'=> 'El nombre es obligatorio',
+				'name.min'=> 'El nombre dede ser min. de 3 letras',
+				'name.max'=> 'El nombre debe ser max. de 80 letras',
+				'name.regex'=> 'El nombre solo acepta letras',
+				'email.required'=> 'El email es obligatorio',
+				'email.email'=> 'El email dede tener @',
+				'email.between'=> 'El email tener entre 3 y 80 letras',
+				'subject.required'=> 'El subject es obligatorio',
+				'subject.min'=> 'El subject dede ser min. de 3 letras',
+				'subject.max'=> 'El subject debe ser max. de 80 letras',
+				'subject.regex'=> 'El subject debe ser de letras',
+				'msg.required'=> 'El msg es obligatorio',
+				);
+			$validador= Validator::make(Input::All(), $rules, $messages);
+			if ($validador->passes())
+			{
+				$data=array(
+					'name'=>Input::get('name'),
+					'email'=>Input::get('email'),
+					'subject'=>Input::get('subject'),
+					'msg'=>Input::get('msg')
+				);
+				$fromEmail='soporte@soporteorganizacional.com.mx';
+				$fromName='Rafael Méndez';
+				Mail::send('emails.contacto',$data,function($message) use ($fromName,$fromEmail)
+				{
+					$message->to($fromEmail,$fromName);
+					$message->from('rmendez1972@hotmail.com','Rafael Mendez Asencio');
+					$message->subject('Email de prueba desde laravel');
+				});	
+				$mensaje="<div class='text-info'>Correo enviado con éxito</div>";
+			}
+			else{
+
+				return Redirect::back()->withInput()->withErrors($validador);
+			}
+
+		}
+		return View::make('HomeController.contacto',array('mensaje'=>$mensaje));
+	}
+}

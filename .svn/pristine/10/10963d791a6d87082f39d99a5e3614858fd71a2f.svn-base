@@ -1,0 +1,28 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+	<h1>Municipios</h1>
+
+	<p>
+		{{ HTML::link('/municipios/nuevo', 'Nuevo'); }}
+	</p>
+
+	<table class="table">
+		<thead>
+			<th>Clave</th>
+			<th>Nombre</th>
+			<th>Acciones</th>
+		</thead>
+		<tbody>
+			@foreach($municipios as $mun)
+				<tr>
+					<td>{{ $mun->cve_municipio }}</td>
+					<td>{{ $mun->nombre_municipio }}</td>
+					<td>
+						{{ HTML::link('/municipios/editar/'.$mun->cve_municipio, 'Editar'); }}
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+@stop

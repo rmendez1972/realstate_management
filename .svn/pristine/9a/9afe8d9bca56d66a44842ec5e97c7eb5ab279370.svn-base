@@ -1,0 +1,85 @@
+<?php $__env->startSection('content'); ?>
+<div class="panel panel-default" style="margin-top:20px">
+<div class="panel-heading">Edición de Usuarios de Sistema</div>
+<div class="panel-body">
+
+
+	<?php echo Form::open(array('url' => '/usuarios/editar',
+            "enctype" => "multipart/form-data", 'role'=>'form')); ?>
+
+	<div class="form-group">
+		<?php echo Form::label('nombre_usuario', 'Nombre:'); ?>
+
+		<?php echo Form::text('nombre_usuario', $usuario->nombre_usuario, array('required' => 'required','class' => 'form-control')); ?>
+
+		<div class="bg-danger"><?php echo $errors->first('nombre_usuario'); ?></div>
+		
+	</div>
+	<div class="form-group">
+		<?php echo Form::label('usuario', 'Usuario:'); ?>
+
+		<?php echo Form::text('usuario', $usuario->usuario, array('required' => 'required', 'class' => 'form-control')); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('usuario'); ?></div>
+    </div>
+	<div class="form-group">
+		<?php echo Form::label('email', 'Email:'); ?>
+
+		<?php echo Form::email('email', $usuario->email, array('required' => 'required', 'class' => 'form-control')); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('email'); ?></div>
+    </div>
+
+    <div class="form-group">
+		<?php echo Form::label('password', 'Password:'); ?>
+
+		<?php echo Form::input('password','password', $usuario->password, array('required' => 'required', 'class' => 'form-control')); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('password'); ?></div>
+    </div>
+
+    <div class="form-group">
+		<?php echo Form::label('repetir_password', 'Repetir Password:'); ?>
+
+		<?php echo Form::input('password','repetir_password', $usuario->password, array('required' => 'required', 'class' => 'form-control')); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('repetir_password'); ?></div>
+    </div>
+
+	<p>Avatar actual:</p>
+	<img src="<?php echo URL::to('/').'/'. $usuario->src; ?>" alt="Avatar" width="150" hight="150">
+	<hr>
+	<small>Si incluyes un nuevo avatar, este reemplará al anterior!</small>
+	<hr>
+    <div class="form-group">
+		<?php echo Form::label("Nuevo avatar:"); ?>
+
+        <?php echo Form::input('file','src'); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('src'); ?></div>
+    </div>
+    
+    <div class="form-group">
+		<?php echo Form::label('nivel_acceso', 'Nivel de acceso:'); ?>
+
+		<?php echo Form::text('nivel_acceso', $usuario->nivel_acceso, array('required' => 'required', 'class' => 'form-control')); ?>
+
+        <div class="bg-danger"><?php echo $errors->first('nivel_acceso'); ?></div>
+    </div>
+
+
+
+		<?php echo Form::input("hidden", "_token", csrf_token()); ?>
+
+		<?php echo Form::input("hidden", "id", $usuario->id); ?>
+
+        <?php echo Form::submit('Aceptar', array('class' => 'btn btn-primary')); ?>
+
+        <a href="<?php echo URL::to('/usuarios'); ?>"><?php echo Form::button('Cancelar', array('class' => 'btn')); ?></a>
+	<?php echo Form::close(); ?>
+
+</div>
+</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

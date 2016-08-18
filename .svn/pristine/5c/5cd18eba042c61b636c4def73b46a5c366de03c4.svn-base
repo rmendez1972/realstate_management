@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		@import  url(//fonts.googleapis.com/css?family=Lato:700);
+		body {
+			margin:10;
+			font-family:'Lato', sans-serif;
+			color: #999;
+		}
+	</style>
+
+</head>
+<body>
+
+
+		<table border="1">
+			<caption><?php echo $titulo_reporte; ?></caption>
+			<thead>
+				<tr>
+					<th>Nombre de Usuario</th>
+					<th>Usuario</th>
+					<th>Email</th>
+					<th>Nivel de Usuario</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($usuarios as $user): ?>
+					<tr>
+						<td><?php echo $user->nombre_usuario; ?></td>
+						<td><?php echo $user->usuario; ?></td>
+						<td><?php echo $user->email; ?></td>
+						<td><?php echo $user->nivel_acceso; ?></td>
+					</tr>
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+
+</body>
+</html>

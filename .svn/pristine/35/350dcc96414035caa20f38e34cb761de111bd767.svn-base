@@ -1,0 +1,62 @@
+@extends('layouts.bootstrap')
+
+@section('content')
+	
+
+	<p>
+		{{ HTML::link('/usuarios/nuevo', 'Nuevo'); }}
+	</p>
+	<hr>
+{{Form::open(array
+		(
+			'action'=>'HomeController@mostrarUsuarios',
+			'method'=>'GET',
+			'role'=>'form',
+			'class'=>'form-inline'
+			/*'files'=>'true'*/
+		))
+
+	}}
+	{{Form::input('text','buscar',Input::get('buscar'), array('class'=>'form-control'))}}
+	{{Form::input('submit',null,'Buscar', array('class'=>'btn btn-primary'))}}
+	{{Form::close()}}
+	<hr>
+	<div class="panel panel-default" style="margin-top:20px">
+	<div class="panel-heading">Usuarios de Sistema</div>
+	<div class="panel-body">
+	
+	
+
+	<table class="table">
+		<thead>
+			<th>Nombre de Usuario</th>
+			<th>Usuario</th>
+			<th>Email</th>
+			<th>Nivel de Usuario</th>
+			<th>Acciones</th>
+		</thead>
+		<tbody>
+			@foreach($usuarios as $usuario)
+				<tr>
+					<td>{{ $usuario->nombre_usuario }}</td>
+					<td>{{ $usuario->usuario }}</td>
+					<td>{{ $usuario->email }}</td>
+					<td>{{ $usuario->nivel_acceso }}</td>
+					<td>
+						{{ HTML::link('/usuarios/editar/'.$usuario->id, 'Editar'); }}
+						{{ HTML::link('/usuarios/eliminar/'.$usuario->id, 'Eliminar'); }}
+					</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+	<div class="container">
+		{{$usuarios->appends(array("buscar"=>Input::get("buscar")))->links()}}
+
+	</div>
+	</<div>
+	</<div>
+	</<div>
+		
+	</div>
+@stop

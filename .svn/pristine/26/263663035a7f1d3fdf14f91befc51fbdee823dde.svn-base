@@ -1,0 +1,44 @@
+@extends('layouts.bootstrapcredencial')
+
+@section('fechaactual')
+    {{$fechaactual}}
+@stop
+
+@section('solicitante')
+    {{$asesor->nombre_razon.' '.$asesor->apellido_paterno.' '.$asesor->apellido_materno}}
+@stop
+
+@section('matricula')
+    <strong>{{$asesor->matricula}}</strong>
+@stop
+
+@section('foto')
+
+    <img src="{{URL::to('/').'/'. $asesor->src }}" wihth="80" height="100" alt="">
+@stop
+@section('nombre_razon')
+    <strong>{{$asesor->nombre_razon.' '.$asesor->apellido_paterno.' '.$asesor->apellido_materno}}</strong>
+@stop
+
+@section('tipo_persona')
+    {{$tipopersona->descripcion_tipo_persona}}
+@stop
+
+@section('rfc')
+    <strong>{{$asesor->rfc}}</strong>
+@stop
+
+@section('domicilio')
+    {{$asesor->calle.' número '.$asesor->numero_interior.', manzana '.$asesor->manzana.' y colonia o región '.$asesor->colonia_region.' de la ciudad de '.$asesor->localidad.'.'}}
+@stop
+
+@section('fecha_matriculacion')
+        <strong>
+            {{$fechamatricula}}
+        </strong>
+@stop
+@section('vigencia')
+        <strong>
+            {{$vigencia}}
+        </strong>
+@stop

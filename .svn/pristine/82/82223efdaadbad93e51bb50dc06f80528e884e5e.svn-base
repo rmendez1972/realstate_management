@@ -1,0 +1,113 @@
+<?php $__env->startSection('content'); ?>
+	<h1>Nuevo asesor</h1>
+
+	<?php echo Form::open(array('url' => '/asesores/nuevo')); ?>
+
+		<div class="form-group">
+			<div>
+				<?php echo Form::label('nombre_razon', 'Nombre / Razón social', array('class' => 'control-label')); ?>
+
+			</div>
+        	<div class="col-sm-4">
+        		<?php echo Form::text('nombre_razon', '', array('required' => 'required', 'class' => 'form-control')); ?>
+
+        	</div>
+        </div>
+		<br/>
+        <div class="form-group">
+            <div>
+        	    <?php echo Form::label('apellido_paterno', 'Apellido paterno', array('class' => 'control-label')); ?>
+
+        	</div>
+            <div class="col-sm-3">
+                <?php echo Form::text('apellido_paterno', '', array('class' => 'form-control')); ?>
+
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('apellido_materno', 'Apellido materno', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <?php echo Form::text('apellido_materno', '', array('class' => 'form-control')); ?>
+
+             </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('rfc', 'RFC', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <?php echo Form::text('rfc', '', array('class' => 'form-control', 'required' => 'required')); ?>
+
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('id_tipo_persona', 'Tipo de persona', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <select id="id_tipo_persona" name="id_tipo_persona" class="form-control">
+                    <option value="-1">- Seleccione una opción -</option>
+                    <?php foreach($tipos_personas as $tpersona): ?>
+						<option value="<?php echo $tpersona->id_tipo_persona; ?>"><?php echo $tpersona->descripcion_tipo_persona; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('cve_municipio', 'Municipio', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <select id="cve_municipio" name="cve_municipio" class="form-control">
+                    <option value="-1">- Seleccione una opción -</option>
+                    <?php foreach($municipios as $municipio): ?>
+						<option value="<?php echo $municipio->cve_municipio; ?>"><?php echo $municipio->nombre_municipio; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('colonia_region', 'Colonia / Región', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <?php echo Form::text('colonia_region', '', array('class' => 'form-control')); ?>
+
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div>
+                <?php echo Form::label('calle', 'Dirección', array('class' => 'control-label')); ?>
+
+            </div>
+            <div class="col-sm-2">
+                <?php echo Form::text('calle', '', array('class' => 'form-control', 'placeholder' => 'Calle')); ?>
+
+            </div>
+            <div class="col-sm-1">
+                <?php echo Form::text('manzana', '', array('class' => 'form-control', 'placeholder' => 'Mza.')); ?>
+
+            </div>
+            <div class="col-sm-1">
+                <?php echo Form::text('numero_interior', '', array('class' => 'form-control', 'placeholder' => '# Int')); ?>
+
+            </div>
+
+        </div>
+	<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.bootstrap', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

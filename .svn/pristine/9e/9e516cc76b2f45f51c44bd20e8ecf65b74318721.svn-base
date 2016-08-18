@@ -1,0 +1,129 @@
+﻿
+USE `asesoresinm_db`;
+-- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+--
+-- Host: localhost    Database: asesoresinm_db
+-- ------------------------------------------------------
+-- Server version	5.6.16-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `asesores`
+--
+
+DROP TABLE IF EXISTS `asesores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `asesores` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_razon` varchar(65) DEFAULT '',
+  `apellido_paterno` varchar(45) DEFAULT '',
+  `apellido_materno` varchar(45) DEFAULT '',
+  `rfc` varchar(15) DEFAULT '',
+  `id_tipo_persona` int(2) NOT NULL,
+  `cve_municipio` varchar(3) NOT NULL,
+  `colonia_region` varchar(45) DEFAULT '',
+  `calle` varchar(85) DEFAULT '',
+  `manzana` varchar(12) DEFAULT '',
+  `numero_interior` varchar(12) DEFAULT '',
+  `numero_exterior_lote` varchar(12) DEFAULT '',
+  `codigo_postal` varchar(8) DEFAULT '',
+  `telefono` varchar(10) DEFAULT '',
+  `celular` varchar(10) DEFAULT '',
+  `email` varchar(65) DEFAULT '',
+  `doctos_faltantes` text,
+  `id_usuario_genero` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `cat_municipios`
+--
+
+DROP TABLE IF EXISTS `cat_municipios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_municipios` (
+  `cve_municipio` varchar(3) NOT NULL DEFAULT '',
+  `nombre_municipio` varchar(48) DEFAULT '',
+  PRIMARY KEY (`cve_municipio`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_municipios`
+--
+
+LOCK TABLES `cat_municipios` WRITE;
+/*!40000 ALTER TABLE `cat_municipios` DISABLE KEYS */;
+INSERT INTO `cat_municipios` VALUES ('001','COZUMEL'),('002','FELIPE CARRILLO PUERTO'),('003','ISLA MUJERES'),('004','OTHÓN P. BLANCO'),('005','BENITO JUÁREZ'),('006','JOSÉ MARÍA MORELOS'),('007','LÁZARO CÁRDENAS'),('008','SOLIDARIDAD'),('009','TULUM'),('010','BACALAR');
+/*!40000 ALTER TABLE `cat_municipios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cat_tipo_persona`
+--
+
+DROP TABLE IF EXISTS `cat_tipo_persona`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cat_tipo_persona` (
+  `id_tipo_persona` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion_tipo_persona` varchar(25) DEFAULT '',
+  PRIMARY KEY (`id_tipo_persona`),
+  UNIQUE KEY `id_tipo_persona` (`id_tipo_persona`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_tipo_persona`
+--
+
+LOCK TABLES `cat_tipo_persona` WRITE;
+/*!40000 ALTER TABLE `cat_tipo_persona` DISABLE KEYS */;
+INSERT INTO `cat_tipo_persona` VALUES (1,'FISICA'),(2,'MORAL'),(3,'ASESOR INMOBILIARIO');
+/*!40000 ALTER TABLE `cat_tipo_persona` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` varchar(85) DEFAULT '',
+  `usuario` varchar(45) DEFAULT '',
+  `pass` varchar(254) DEFAULT '',
+  `nivel_acceso` int(1) DEFAULT '0',
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `id_usuario` (`id_usuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 PACK_KEYS=0;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-12-03 11:07:40
