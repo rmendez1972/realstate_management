@@ -166,7 +166,7 @@
       <div class="pie container">
         <div>Aplicación:
             <br>Sistema para el registro de Asesores Inmobiliarios en el estado de Quintana Roo.<br>
-            <!--<IMG SRC="assets/imagenes/inmobiliarias.png" width="100" height="100">-->
+            <!--<IMG SRC="assets/imagenes/inmobiliarias.png" width="50" height="50">-->
               {{ HTML::image('assets/imagenes/inmobiliarias.png') }}
         </div>
         <div>

@@ -927,7 +927,7 @@ width: 85%;
 margin:0 auto;
 
 }
-.menu{ background-color: #FE2E2E; background-color: #FA5858;}
+.menu{ background-color: #002e49; }
 .menu li{display: inline;
 /*padding-right: 20px;*/}
 .menu ul{margin: 0px;padding: 0px;float: left;}
@@ -936,17 +936,17 @@ margin:0 auto;
 /*height: 68px;*/
 background-repeat: no-repeat;
 /*margin: 0px;padding: 0px;*/
-background-color: #004101;
+background-color: #ffffff;
 /*width: 85%;*/
 margin:0 auto;
-color: white;
+color: black;
 }
 .pie div{display: inline-block;
 width: 33%;
 /*padding: 1em;
 opacity: 1;*/
 vertical-align: text-top;
-margin-top: 112px;
+margin-top: 15px;
 }
 .oculto{
 	display: none;

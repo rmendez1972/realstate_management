@@ -8,6 +8,6 @@
 
 @section('content')
 	<div>
-		<img alt="" src="assets/imagenes/letras.jpg" align="right"/>
+		<img alt="" src="assets/imagenes/letras.jpg" style="margin-left:100px"/>
 	</div>
 @stop
