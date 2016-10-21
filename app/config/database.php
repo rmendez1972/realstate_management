@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'asesoresinm_db',
 			'username'  => 'root',
-			'password'  => 'admin',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -79,7 +79,7 @@ return array(
 			'host'     => 'localhost',
 			'database' => 'database',
 			'username' => 'root',
-			'password' => 'igh12122',
+			'password' => 'root',
 			'prefix'   => '',
 		),
 
