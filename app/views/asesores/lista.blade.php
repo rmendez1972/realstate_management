@@ -55,7 +55,7 @@
 								{{ HTML::link('/reportes/matricula_asesor/'.$asesor->id, '',array('class' =>'hi-perfil  glyphicon-barcode','title'=>'Imprimir matrícula con firma Secretario','target' => '_self')) }}
 								{{ HTML::link('/reportes/matricula_asesor_subsecretaria/'.$asesor->id, '',array('class' =>'hi-perfil  glyphicon-export','title'=>'Imprimir matrícula con firma de Subsecretaria','target' => '_self')) }}
 								{{ HTML::link('/reportes/credencial_asesor/'.$asesor->id, '',array('class' =>'hi-perfil  glyphicon-user','title'=>'Imprimir credencial','target' => '_self')) }}
-								{{ HTML::link('/reportes/acuserecibo_asesor/'.$asesor->id, '',array('class' =>'hi-perfil  glyphicon-list-alt','title'=>'Acuse de recibo de Documentos entregados','target' => '_blank')) }}
+								{{ HTML::link('/reportes/acuserecibo_asesor/'.$asesor->id, '',array('class' =>'hi-perfil  glyphicon-list-alt','title'=>'Acuse de recibo de Matrícula entregada','target' => '_blank')) }}
 							</td>
 							<td></td>
 						</tr>

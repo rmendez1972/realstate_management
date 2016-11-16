@@ -43,7 +43,7 @@
 @stop
 
 @section('qr_code')
-<img src="{{URL::to('/').'/'.'assets/imagenes/qr_code/'.'Secretaria_de_Desarrollo_Urbano_y_Vivienda_'.strtoupper(trim($asesor->matricula)).'.png'}}" width="45" height="45">
+<img src="{{URL::to('/').'/'.'assets/imagenes/qr_code/'.'Secretaria_de_Desarrollo_Urbano_y_Vivienda_'.strtoupper(trim($asesor->matricula)).'.png'}}" width="35" height="35">
 
 
 @stop
@@ -53,7 +53,7 @@
         </strong>
 @stop
 @section('vigencia')
-        <strong>
+        
             {{$vigencia}}
-        </strong>
+       
 @stop

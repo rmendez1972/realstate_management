@@ -166,8 +166,7 @@
       <div class="pie container">
         <div>Aplicación:
             <br>Sistema para el registro de Asesores Inmobiliarios en el estado de Quintana Roo.<br>
-            <!--<IMG SRC="assets/imagenes/inmobiliarias.png" width="50" height="50">-->
-              {{ HTML::image('assets/imagenes/inmobiliarias.png') }}
+            {{ HTML::image('assets/imagenes/inmobiliarias.png') }}
         </div>
         <div>
 
@@ -175,7 +174,7 @@
         <div>SUBSECRETARIA TECNICA<br>Dirección de Informática<br>
           Departamento de Sistemas<br><br>
           Soporte Ext. 211<BR>
-          Derechos Reservados (c) SEDUVI 2014</div>
+          Derechos Reservados (c) SEDUVI 2016</div>
       </div>
     </footer>
   </body>
