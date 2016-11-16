@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -16,20 +17,20 @@
 
 
       #frente{ position: absolute;
-        width: 213px;height: 346px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios FRENTE1x.png');
+        width: 213px;height: 340px;
+        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios FRENTE1x.jpg');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-
         text-align: center;
+        /*background-position:  25 200;*/
 
       }
 
      #reverso {
         width: 213px;height: 346px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios DETRAS1x.png');
+        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios DETRAS1x.jpg');
 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -45,7 +46,9 @@
         border-color: black;
         /*border-style: solid;margin-top:50px;*/
         margin-top:55px;
-        margin-left:70px;
+        /*margin-left:70px;*/
+        padding-top: 55px;
+        margin:auto;
         /*background-image: url('assets/imagenes/avatars/foto_perfil1.jpg');*/
         background-position: 0% 0%;
         background-size: 10 10;
@@ -58,12 +61,14 @@
         margin-top: 5px;
         font-size: 9px;
         font-weight: bolder;
+        color: #534534;
+        font-family:'Rounded';
       }
 
       .texto2 {
         font-size: 9px;
         font-weight: bolder;
-        color: #666666; /*tono de gris*/
+        color: #534534; /*     ##534534 cafe 666666 tono de gris*/
         margin-right: 5px;
         margin-left: 5px;
       }
@@ -72,6 +77,7 @@
         font-size: 7px;
         margin-right: 5px;
         margin-left: 5px;
+        color: #534534;
       }
 
     </style>
@@ -80,7 +86,8 @@
 
   <body>
 
-    <div id="frente">
+        
+    <div id="frente" style="padding-left:-1px;">
       <div id="foto" >@yield('foto')</div>
       <div class="texto1">@yield('nombre_razon')</div>
       <div class="texto2">@yield('tipo_persona')<br><br></div>
@@ -89,7 +96,7 @@
         __________________________<br>Firma<br><br>
       </div>
 
-      <div style="font-size:12px">
+      <div style="font-size:12px; color:#534534">
         MATRICULA:<br> @yield('matricula')<br><br>
 
       </div>
@@ -98,42 +105,48 @@
     </div>
 
     <div id="reverso">
-      <div style="margin-top:50px;">
+      <div style="margin-top:10px; padding-right:5px;padding-left:0px;">
         <small>
-
           <div style=   "text-align:left;padding:10px">
-
-          RFC: @yield('rfc')<br><br>
-            <strong >
-              DOMICILIO:
-            </strong>
-            <div class="texto1" style="text-align:justify;font-size:8px;">
+            RFC: @yield('rfc')<br><br>
+            <strong >DOMICILIO:</strong>
+            <div class="texto1" style="text-align:justify;font-size:8px;color:black;">
               @yield('domicilio')
             </div>
 
             <div style="font-size:9px;text-align:justify;">
-              <br>
-              @yield('fecha_expedicion')
+              <br>@yield('fecha_expedicion')
             </div>
-          </div>
+            <div style="width:300px;height:110px;position:fixed; bottom:0;font-size:7px;left:-35">
 
-            <div style="width:300px;height:50px;position:fixed; bottom:0;left:-120;font-size:3px;margin-right:-120px">
-              @yield('qr_code')<br><br><br><small><br></small>
-              <div style="font-size:11px;color:white;width:500px;margin-left:-33px;padding-top:2px">Vencimiento:@yield('vigencia')</div>
+              <table border="0px"; style="text-align:center;font-size:9px;margin-left:30px;color:#534534;margin-top:40px;">
+                 <tr><td><strong>Arq. Carlos Ríos Castellanos<br><small>
+                    SECRETARIO DE LA SEDUVI</strong></small></td> 
+                 </tr>
+                 <br><br>
+              </table>
 
-            </div>
-          </div>
+              <table border="0px"; style="text-align:right; padding-top:-16px;padding-left:10px;margin-top:0px;">
+                <tr>
+                  <td>@yield('qr_code')</td>
+                  <td style="width:135px;">
+                    Secretaría de Desarrollo Urbano y Vivienda<br>
+                    Álvaro Obregón #474. Col. Centro. C.P.77000<br>
+                     Chetumal, QuintanaRoo. México<br>
+                    Tel.(983)83-5-17-00<br>
+                    http://seduvi.qroo.gob.mx<br>
+                  </td>
+                </tr>
+              </table>
 
+              <table border="0px"; style="text-align:right;font-size:11px;color:black;padding-top:-2px;padding-left:4px;">
+                <tr>
+                  <td><b>Vencimiento:</b>@yield('vigencia')</td> 
+                </tr>
+              </table>
+          </div>    
         </small>
-
-        <!--<div style="position:fixed; z-index:999999;font-size:10px;margin-left:-30px;color:black;bottom:-9px;">
-          Vencimiento:
-          @yield('vigencia')
-        </div>-->
-      <div>
       </div>
-
-
+    </div>
   </body>
-
 </html>

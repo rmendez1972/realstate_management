@@ -22,6 +22,21 @@
 	font-style: normal;
 }
 
+/*@font-face {
+	font-family: 'Rounded';
+	src:url('../fonts/Rounded-Elegance.ttf');
+	font-weight: normal;
+	font-style: normal;
+}*/
+
+@font-face {
+    font-family: "Rounded";
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/roundedelegance.oet') format('embedded-opentype'), url("../fonts/roundedelegance.ttf'") format("truetype");
+}
+
+
 .hi-icon-wrap {
 	text-align: center;
 	margin: 0 auto;
@@ -940,6 +955,7 @@ background-color: #ffffff;
 /*width: 85%;*/
 margin:0 auto;
 color: black;
+/*position:fixed; bottom:0; z-index:999999; }*/
 }
 .pie div{display: inline-block;
 width: 33%;
