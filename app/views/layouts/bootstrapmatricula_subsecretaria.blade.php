@@ -98,7 +98,7 @@
 
         <br><br><br>
         <div style="text-align:center;font-size:18px">
-          <u><strong>  Arq. Carlos González-Pacheco Vázquez  </strong><br></u>
+          <u><strong>  Arq. Carlos González Pacheco Vázquez  </strong><br></u>
             <span><small>SUBSECRETARIO DE VIVIENDA</small></span>
         </div>
         <small><small><br></small></small>
