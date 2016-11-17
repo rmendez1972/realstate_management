@@ -16,8 +16,7 @@
 
 @section('content')
 
-
-		<img alt="" src="assets/imagenes/letras.jpg" align="right"/>
+	<p align="center"><img alt="" src="assets/imagenes/letras.jpg"/></p>
 
 <!--<h1>Bienvenido {{Auth::user()->get()->email}}</h1>-->
 
