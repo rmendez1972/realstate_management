@@ -44,11 +44,11 @@
             <span class="icon-bar"></span>
           </button>
           <!--<a class="navbar-brand" href="#">Asesores Inmobiliarios</a>-->
-          <div style="margin-right: 2em"> {{ HTML::image('assets/imagenes/asesores3.png', "Imagen no encontrada", array('id' => 'asesores', 'title' => 'asesores')) }}</div><!--<IMG SRC="assets/imagenes/asesores3.png"></div>-->
+          <div style="margin-right: 2em;margin-top:10px;"> {{ HTML::image('assets/imagenes/asesores3.png', "Imagen no encontrada", array('id' => 'asesores', 'title' => 'asesores')) }}</div><!--<IMG SRC="assets/imagenes/asesores3.png"></div>-->
         </div>
 
         <!--<div id="navbar" class="collapse navbar-collapse">-->
-        <div class="btn-group">
+        <div class="btn-group" style="border-left: solid 2px;border-left-style: groove;">
           <div class="hi-icon-wrap hi-icon-effect-8">
             <!--<ul class="nav navbar-nav">-->
             <ul> <!--Menu horizontal iconos con efecto-->

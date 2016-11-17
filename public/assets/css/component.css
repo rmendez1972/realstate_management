@@ -938,8 +938,9 @@
 height: 68px;
 background-repeat: no-repeat;
 /*margin: 0px;padding: 0px;*/
-width: 85%;
+width: 75%;
 margin:0 auto;
+/*background-position: 100 100;*/
 
 }
 .menu{ background-color: #459cc1; }

@@ -64,7 +64,11 @@
       }
       #caja img { width: 950px;height: 78%; }
       .texto {color: #f00;font-size: 30px;position: relative;}
-
+      b{
+        margin: 0;
+        padding: 0;*/
+        
+      }  
 
     </style>
 
@@ -80,7 +84,7 @@
         <h3 style="text-align:right;padding-right:24px;"><b>Asunto:</b> Acuse de Recibo </h3>
 
         <div style="text-align:justify;font-size:18px;margin-top:80px;line-height:35px;width:660px;padding-left:-2px">
-          <p>Recibí de la Secretaría de Desarrollo Urbano y Vivienda la Matrícula respectiva en mi calidad de <b>@yield('nombre_tipopersona')</b> para la prestación de Servicios Inmobiliarios en el Estado de Quintana Roo.</p>
+          <p>Recibí de la Secretaría de Desarrollo Urbano y Vivienda la Matrícula respectiva en mi calidad de <b>@yield('nombre_tipopersona')</b>para la prestación de Servicios Inmobiliarios en el Estado de Quintana Roo.</p>
         </div>
         <div style="text-align:center;font-size:18px;margin-top:150px;">
           <strong>R E C I B Í</strong><br><br><br>
