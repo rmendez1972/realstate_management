@@ -17,8 +17,9 @@
 
 
       #frente{ position: absolute;
-        width: 213px;height: 340px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios FRENTE1x.jpg');
+        margin-top:5px;
+        width: 213px;height: 338px;
+        background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUSFRENTE.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -30,7 +31,8 @@
 
      #reverso {
         width: 213px;height: 346px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios DETRAS1x.jpg');
+
+        background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');
 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -86,7 +88,7 @@
 
   <body>
 
-        
+
     <div id="frente" style="padding-left:-1px;">
       <div id="foto" >@yield('foto')</div>
       <div class="texto1">@yield('nombre_razon')</div>
@@ -121,16 +123,16 @@
 
               <table border="0px"; style="text-align:center;font-size:9px;margin-left:30px;color:#534534;margin-top:40px;">
                  <tr><td><strong>Arq. Carlos Ríos Castellanos<br><small>
-                    SECRETARIO DE LA SEDUVI</strong></small></td> 
+                    SECRETARIO DE LA SEDETUS</strong></small></td>
                  </tr>
                  <br><br>
               </table>
 
-              <table border="0px"; style="text-align:right; padding-top:-16px;padding-left:10px;margin-top:0px;">
+              <table border="0px"; style="text-align:right; padding-top:-25px;padding-left:10px;margin-top:0px;">
                 <tr>
                   <td>@yield('qr_code')</td>
                   <td style="width:135px;">
-                    Secretaría de Desarrollo Urbano y Vivienda<br>
+                    Secretaría de Desarrollo Territorial<br> Urbano Sustentable<br>
                     Álvaro Obregón #474. Col. Centro. C.P.77000<br>
                      Chetumal, QuintanaRoo. México<br>
                     Tel.(983)83-5-17-00<br>
@@ -141,10 +143,10 @@
 
               <table border="0px"; style="text-align:right;font-size:11px;color:black;padding-top:-2px;padding-left:4px;">
                 <tr>
-                  <td><b>Vencimiento:</b>@yield('vigencia')</td> 
+                  <td><b>Vencimiento:</b>@yield('vigencia')</td>
                 </tr>
               </table>
-          </div>    
+          </div>
         </small>
       </div>
     </div>

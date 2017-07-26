@@ -171,7 +171,7 @@
         <div>
 
         </div>
-        <div>SUBSECRETARIA TECNICA<br>Dirección de Informática<br>
+        <div align="right">SUBSECRETARIA TECNICA<br>Dirección de Informática<br>
           Departamento de Sistemas<br><br>
           Soporte Ext. 211<BR>
           Derechos Reservados (c) SEDUVI 2016</div>
