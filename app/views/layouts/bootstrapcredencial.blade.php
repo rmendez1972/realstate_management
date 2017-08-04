@@ -136,7 +136,7 @@
                     Álvaro Obregón #474. Col. Centro. C.P.77000<br>
                      Chetumal, QuintanaRoo. México<br>
                     Tel.(983)83-5-17-00<br>
-                    http://seduvi.qroo.gob.mx<br>
+                    http://qroo.gob.mx/sedetus<br>
                   </td>
                 </tr>
               </table>

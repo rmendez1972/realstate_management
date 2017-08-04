@@ -79,7 +79,7 @@
     <div class="pie">
       <div class="referencia" style="text_align:left">
         <strong>REFERENCIA:</strong>
-        SEDUVI/SSV/DPPV/@yield('num_ref')<br>
+        SEDETUS/SSV/DPPV/@yield('num_ref')<br>
         <strong>MATRICULA:</strong>
         @yield('matricula_referencia')
 
