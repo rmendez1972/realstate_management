@@ -93,7 +93,11 @@
         <br><br>
         <div style="text-align:justify;font-size:18px">
           Con fundamento en lo establecido en los artículos 1, 4, 5, 6, 7, 8, 9, 10 y 11 de la Ley de Prestación de Servicios Inmobiliarios; en los artículos 2, 3, 6, 10, 11 y demás relativos del Reglamento de la Ley de Prestación de Servicios Inmobiliarios, ambos del Estado de Quintana Roo, y de conformidad a lo señalado en el artículo 16, fracción XVI del Reglamento Interior de la Secretaría de Desarrollo Territorial Urbano Sustentable, todos relacionados con la solicitud que hiciera ante esta Autoridad para el otorgamiento de la Matrícula y la Acreditación respectiva para la prestación de servicios inmobiliarios en el Estado, me permito informarle:<br><br>
+<<<<<<< HEAD
+          Derivado del análisis y validación efectuada a la documentación diversa que como anexos forman parte integrante de la solicitud que nos ocupa y toda vez que se ha determinado por quien suscribe que se han cumplido los requisitos y condiciones que marca la normatividad ya invocada, la Secretaría de Desarrollo Urbano y Vivienda tiene a bien otorgarle la matrícula con número de folio: @yield('matricula') y la Acreditación respectiva para la prestación de servicios inmobiliarios en su calidad de @yield('nombre_tipopersona'), única y exclusivamente durante la vigencia del presente documento.<br> <br>
+=======
           Derivado del análisis y validación efectuada a la documentación diversa que como anexos forman parte integrante de la solicitud que nos ocupa y toda vez que se ha determinado por quien suscribe que se han cumplido los requisitos y condiciones que marca la normatividad ya invocada, la Secretaría de Desarrollo Territorial Urbano Sustentable tiene a bien otorgarle la matrícula con número de folio: @yield('matricula') y la Acreditación respectiva para la prestación de servicios inmobiliarios en su calidad de @yield('nombre_tipopersona'), única y exclusivamente durante la vigencia del presente documento.<br> <br>
+>>>>>>> 34b4c313a3f0572e8c9d018d03aedb0feb3ad08f
           @yield('fecha_expedicion').
         </div>
 
