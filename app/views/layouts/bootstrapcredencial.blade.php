@@ -17,8 +17,10 @@
 
 
       #frente{ position: absolute;
+        margin-top:5px;
         width: 213px;height: 340px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios FRENTE1x.jpg');
+        /*background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUSFRENTE.png');*/
+        background-image: url('assets/imagenes/CredencialFrente.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -29,26 +31,25 @@
       }
 
      #reverso {
-        width: 213px;height: 346px;
-        background-image: url('assets/imagenes/Credenciales Asesores Inmobiliarios DETRAS1x.jpg');
+        width: 213px;height: 340px;
 
+        background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');
+        background-image: url('assets/imagenes/CredencialReverso.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-
+        background-position:  0 0;
         text-align: center;
-
-
       }
 
       #foto {
-        border-color: black;
-        /*border-style: solid;margin-top:50px;*/
-        margin-top:55px;
-        /*margin-left:70px;*/
-        padding-top: 55px;
-        margin:auto;
+        /*border-color: black;
+        border-style: solid;
+             
+        margin-left:70px;*/
+       
+        margin:55 auto;
         /*background-image: url('assets/imagenes/avatars/foto_perfil1.jpg');*/
         background-position: 0% 0%;
         background-size: 10 10;
@@ -60,15 +61,15 @@
       .texto1 {
         margin-top: 5px;
         font-size: 9px;
-        font-weight: bolder;
+        /*font-weight: bolder;
         color: #534534;
-        font-family:'Rounded';
+        font-family:'arial';*/
       }
 
       .texto2 {
         font-size: 9px;
         font-weight: bolder;
-        color: #534534; /*     ##534534 cafe 666666 tono de gris*/
+         /*color: #534534;     ##534534 cafe 666666 tono de gris*/
         margin-right: 5px;
         margin-left: 5px;
       }
@@ -86,19 +87,13 @@
 
   <body>
 
-        
+
     <div id="frente" style="padding-left:-1px;">
-      <div id="foto" >@yield('foto')</div>
-      <div class="texto1">@yield('nombre_razon')</div>
-      <div class="texto2">@yield('tipo_persona')<br><br></div>
-      <div class="texto3">
-        @yield('afiliado')<br><br><br>
-        __________________________<br>Firma<br><br>
-      </div>
-
-      <div style="font-size:12px; color:#534534">
+      <div id="foto" style="margin-bottom: -50px">@yield('foto')</div>    
+      <div class="texto1" >@yield('nombre_razon')</div>
+      <div class="texto2">@yield('tipo_persona')<br><br><br></div>
+      <div style="font-size:12px;">
         MATRICULA:<br> @yield('matricula')<br><br>
-
       </div>
       </small>
 
@@ -108,7 +103,16 @@
       <div style="margin-top:10px; padding-right:5px;padding-left:0px;">
         <small>
           <div style=   "text-align:left;padding:10px">
-            RFC: @yield('rfc')<br><br>
+            <table width="100%">
+              <tr>
+                <td width="80%">
+                  RFC: @yield('rfc')
+                </td>
+                <td>
+                  @yield('qr_code')
+                </td>
+              </tr>
+            </table>
             <strong >DOMICILIO:</strong>
             <div class="texto1" style="text-align:justify;font-size:8px;color:black;">
               @yield('domicilio')
@@ -119,32 +123,37 @@
             </div>
             <div style="width:300px;height:110px;position:fixed; bottom:0;font-size:7px;left:-35">
 
-              <table border="0px"; style="text-align:center;font-size:9px;margin-left:30px;color:#534534;margin-top:40px;">
-                 <tr><td><strong>Arq. Carlos Ríos Castellanos<br><small>
-                    SECRETARIO DE LA SEDUVI</strong></small></td> 
+              <table border="0px"; style="text-align:center;font-size:10px;margin-left:10px;margin-top:15px;">
+                 <tr >
+                   <td style="padding-left:0px;width:182px"><strong>Arq. Carlos Ríos Castellanos<br><small>
+                    SECRETARIO DE LA SEDETUS</strong></small>
+                    </td>
                  </tr>
-                 <br><br>
               </table>
 
-              <table border="0px"; style="text-align:right; padding-top:-16px;padding-left:10px;margin-top:0px;">
+              <table border="0px"; style="text-align:center;font-size:9px;margin-left:10px;color:#534534;margin-top:15px;">
+                 <tr>
+                 <td style="padding-left:-5px;width:182px; font-size:10px;color:black;padding-top:0px;">
+                   <b>Vencimiento: @yield('vigencia')</b> 
+                 </td>
+                 </tr>
+              </table>
+      
+
+              <table border="0px" style="text-align:left; font-size:9px; padding-top:0px;padding-left:10px;margin-top:0px;">
                 <tr>
-                  <td>@yield('qr_code')</td>
                   <td style="width:135px;">
-                    Secretaría de Desarrollo Urbano y Vivienda<br>
+                    Secretaría de Desarrollo Territorial<br> Urbano Sustentable<br>
                     Álvaro Obregón #474. Col. Centro. C.P.77000<br>
-                     Chetumal, QuintanaRoo. México<br>
+                     Chetumal, Quintana Roo. México<br>
                     Tel.(983)83-5-17-00<br>
-                    http://seduvi.qroo.gob.mx<br>
+                    http://qroo.gob.mx/sedetus<br>
                   </td>
                 </tr>
               </table>
 
-              <table border="0px"; style="text-align:right;font-size:11px;color:black;padding-top:-2px;padding-left:4px;">
-                <tr>
-                  <td><b>Vencimiento:</b>@yield('vigencia')</td> 
-                </tr>
-              </table>
-          </div>    
+
+          </div>
         </small>
       </div>
     </div>
