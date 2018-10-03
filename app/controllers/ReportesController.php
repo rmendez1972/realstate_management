@@ -204,7 +204,7 @@ class ReportesController extends BaseController {
         if (!empty($asesor->referencia) && !empty($asesor->src))
         {
             $html= View::make('ReportesController.credencial_asesor', array('asesor' => $asesor,'fechaactual'=>$fechaactual,'meses'=>$meses,'fechamatricula'=>$fechamatricula,'tipopersona'=>$tipo_persona,'vigencia'=>$vigencia,'fecha_expedicion'=>$fecha_expedicion,'nombre_tipopersona'=>$nombre_tipopersona));
-            return PDF::load($html, 'credencial')->show();
+           return PDF::load($html, 'credencial')->show();
             //return $html;
         }else
         {

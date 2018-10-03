@@ -20,7 +20,7 @@
         margin-top:5px;
         width: 213px;height: 340px;
         /*background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUSFRENTE.png');*/
-        background-image: url('assets/imagenes/CredencialFrente.png');
+        background-image: url('assets/imagenes/1.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -33,8 +33,8 @@
      #reverso {
         width: 213px;height: 340px;
 
-        background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');
-        background-image: url('assets/imagenes/CredencialReverso.png');
+        /*background-image: url('/asesores_inmobiliarios/assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');*/
+        background-image: url('assets/imagenes/2.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -89,6 +89,7 @@
 
 
     <div id="frente" style="padding-left:-1px;">
+    <!--<img src='../public/assets/imagenes/CredencialFrente.png'>-->
       <div id="foto" style="margin-bottom: -50px">@yield('foto')</div>    
       <div class="texto1" >@yield('nombre_razon')</div>
       <div class="texto2">@yield('tipo_persona')<br><br><br></div>
