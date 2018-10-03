@@ -31,7 +31,7 @@
       }
 
      #reverso {
-        width: 213px;height: 340px;
+        width: 213px;height: 346px;
 
         /*background-image: url('/asesores_inmobiliarios/assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');*/
         background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_reverso.png');
@@ -39,7 +39,7 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-        background-position:  0 0;
+        background-position:  0 4;
         text-align: center;
       }
 
