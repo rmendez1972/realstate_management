@@ -20,7 +20,7 @@
         margin-top:5px;
         width: 213px;height: 340px;
         /*background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUSFRENTE.png');*/
-        background-image: url('assets/imagenes/1.png');
+        background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_frente.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -34,7 +34,7 @@
         width: 213px;height: 340px;
 
         /*background-image: url('/asesores_inmobiliarios/assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');*/
-        background-image: url('assets/imagenes/2.png');
+        background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_reverso.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
