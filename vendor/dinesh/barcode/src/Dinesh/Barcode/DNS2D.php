@@ -227,7 +227,7 @@ class DNS2D {
             $this->setStorPath(\Config::get("barcode::store_path"));
         }
         //set barcode code and type
-        $this->setBarcode($code, $type);
+        $this->setBarcode($code.'<a href="https://www.qroo.gob.mx/sedetus">Valida tu Matricula</a>', $type);
         // calculate image size
         $width = ($this->barcode_array['num_cols'] * $w);
         $height = ($this->barcode_array['num_rows'] * $h);
