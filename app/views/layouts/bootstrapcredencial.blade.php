@@ -20,7 +20,8 @@
         margin-top:5px;
         width: 213px;height: 340px;
         /*background-image: url('assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUSFRENTE.png');*/
-        background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_frente.png');
+        /*background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_frente.png');*/
+        background-image: url('assets/imagenes/Credenciales_Asesores_Inmobiliarios_SEDETUS_09112018_FRENTE.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -34,7 +35,8 @@
         width: 213px;height: 346px;
 
         /*background-image: url('/asesores_inmobiliarios/assets/imagenes/Credenciales-Asesores-Inmobiliarios-SEDETUS.png');*/
-        background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_reverso.png');
+        /*background-image: url('assets/imagenes/CREDENCIAL_ASESORES_01102018_reverso.png');*/
+        background-image: url('assets/imagenes/Credenciales_Asesores_Inmobiliarios_SEDETUS_09112018_REVERSO.png');
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -101,7 +103,7 @@
     </div>
 
     <div id="reverso">
-      <div style="margin-top:10px; padding-right:5px;padding-left:0px;">
+       <div style="margin-top:10px; padding-right:5px;padding-left:0px;">
         <small>
           <div style=   "text-align:left;padding:10px">
             <table width="100%">
