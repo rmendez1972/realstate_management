@@ -53,7 +53,7 @@
         </strong>
 @stop
 @section('vigencia')
-        
+
             {{$vigencia}}
-       
+
 @stop
