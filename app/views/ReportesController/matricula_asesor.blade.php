@@ -34,6 +34,7 @@
     @section('fecha_expedicion')
         {{$fecha_expedicion}}
     @stop
+    
 
     @section('rfc')
         <strong>{{$asesor->rfc}}</strong>
@@ -49,4 +50,10 @@
                 {{$fechamatricula}}
             </strong>
     @stop
+    @section('fecha_vencimiento')
+            <strong>
+                {{$fechavencimiento}}
+            </strong>
+    @stop
+    
 

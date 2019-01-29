@@ -92,6 +92,7 @@ class ReportesController extends BaseController {
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $fechaactual= "Chetumal Quintana Roo a".' '.date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
         $año_referencia=date('Y');
+        //$año_vencimiento=array(2016,2017);
         $fecha_expedicion='Se expide la presente a los '.date('d').' días del mes de '.$meses[date('n')-1].' del año '.date('Y').', en la ciudad de Chetumal, Quintana Roo';
         //Construir dirección
             $domicilio=$asesor['calle'].' número '.$asesor['numero_exterior_lote'];
@@ -105,8 +106,11 @@ class ReportesController extends BaseController {
         //Fin direccion
 
         //Construyendo la fecha de matriculación
-            $fechamatricula='a los '.date("d",strtotime($asesor->fecha_matriculacion)).' días del mes de '
-            .$meses[date("n",strtotime($asesor->fecha_matriculacion))-1].' del año '.date("Y",strtotime($asesor->fecha_matriculacion)).'.';
+        $fechamatricula='Chetumal, Quintana Roo, a '.date("d",strtotime($asesor->fecha_matriculacion)).' de '
+        .$meses[date("n",strtotime($asesor->fecha_matriculacion))-1].' de '.date("Y",strtotime($asesor->fecha_matriculacion)).'.';
+       
+        //$fechavencimiento='Cuya vigencia será hasta el día'.date("d",strtotime($asesor->fecha_matriculacion)).' del mes de '
+        //.$meses[date("n",strtotime($asesor->fecha_matriculacion))-1].' del año '.date("Y",strtotime($asesor->fecha_matriculacion)).'.';
         //Fin fecha matriculación
         if (!empty($asesor->referencia))
         {

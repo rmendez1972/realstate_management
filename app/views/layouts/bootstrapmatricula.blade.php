@@ -36,7 +36,7 @@
           /*background-size: cover; */
           border-bottom-style: solid;
           border-bottom-width: 4px;
-          border-bottom-color: #ffffffff;
+          border-bottom-color: #4C4139;
           margin-left:-25px;
           margin-right:-25px;
 
@@ -102,15 +102,23 @@
       </div>
 
       <div style="width:680px;margin: auto">
-        <br><br><p style="text-align:right">  @yield('fechaactual').</p>
+        <br><br><p style="text-align:right;font-size:10px;">@yield('fecha_matriculacion')</p>
         <br><strong>@yield('solicitante')<br>
           CIUDAD @yield('localidad')<br>MUNICIPIO @yield('municipio')</strong>
           <!--</div>-->
         <br><br>
         <div style="text-align:justify;font-size:18px">
           Con fundamento en lo establecido en los artículos 1, 4, 5, 6, 7, 8, 9, 10 y 11 de la Ley de Prestación de Servicios Inmobiliarios y a lo señalado en los artículos 2, 3, 6, 10, 11 y demás relativos del Reglamento de la Ley de Prestación de Servicios Inmobiliarios, ambos del Estado de Quintana Roo, relacionados con la solicitud que hiciera ante esta Autoridad para el otorgamiento de la Matrícula y la Acreditación respectiva para la prestación de servicios inmobiliarios en esta entidad, me permito informarle:<br><br>
-          Derivado del análisis y validación efectuada a la documentación diversa que como anexos forman parte integrante de la solicitud que nos ocupa y toda vez que se ha determinado por quien suscribe que se han cumplido los requisitos y condiciones que marca la normatividad ya invocada, la Secretaría de Desarrollo Territorial Urbano Sustentable tiene a bien otorgarle la matrícula con número de folio: @yield('matricula') y la Acreditación respectiva para la prestación de servicios inmobiliarios en su calidad de @yield('nombre_tipopersona'), única y exclusivamente durante la vigencia del presente documento.<br> <br>
-          @yield('fecha_expedicion').
+          Derivado del análisis y validación efectuada a la 
+          documentación diversa que como anexos forman parte
+           integrante de la solicitud que nos ocupa y toda vez que 
+           se ha determinado por quien suscribe que se han cumplido 
+           los requisitos y condiciones que marca la normatividad ya invocada,
+            la Secretaría de Desarrollo Territorial Urbano Sustentable tiene a 
+            bien otorgarle la matrícula con número de folio: @yield('matricula') y 
+            la Acreditación respectiva para la prestación de servicios inmobiliarios 
+            en su calidad de @yield('nombre_tipopersona'),  @yield('fecha_vencimiento').<br> <br>
+        
         </div>
 
         <br><br><br>
